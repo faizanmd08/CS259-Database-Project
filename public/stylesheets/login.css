@@ -27,3 +27,7 @@
   align-content: center;
   margin-top: 2.5%;
 }
+.logout_btn {
+  margin-left: 50%;
+  margin-bottom: 10px;
+}

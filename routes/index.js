@@ -20,13 +20,16 @@ router.post("/login", function (request, response, next) {
         for (var count = 0; count < data.length; count++) {
           if (data[count].password === user_password) {
             request.session.first_name = data[count].first_name;
+            request.session.user_id = data[count].user_id;
             response.redirect("/form");
           } else {
-            response.send("Incorrect password");
+            request.session.error = "Incorrect Password";
+            response.redirect("/");
           }
         }
       } else {
-        response.send("Incorrect email address");
+        request.session.error = "Incorrect Email";
+        response.redirect("/");
       }
     });
   } else {
@@ -42,24 +45,39 @@ router.post("/signup", function (request, response, next) {
   console.log(request.body);
   var category = request.body.category;
   var password = request.body.password;
+  if (password[0] != password[1]) {
+    request.session.error = "Passwords do not match";
+    response.redirect("/signup");
+  }
   if (fname && lname && email && category && password) {
-    const query = `INSERT INTO user_login_info (first_name, last_name, email, password, category) VALUES (?, ?, ?, ?, ?)`;
-    database.query(
-      query,
-      [fname, lname, email, password[0], category],
-      function (error, result) {
-        if (error) {
-          console.error("Error inserting data:", error);
-          // Handle error appropriately
-        } else {
-          console.log("Data inserted successfully");
-          // Handle successful insertion
-          response.redirect("/");
-        }
+    check_dup = `select * from user_login_info where email = "${email}"`;
+    database.query(check_dup, function (error, data) {
+      if (data.length > 0) {
+        console.log(data);
+        request.session.error = "Email Already Registered";
+        response.redirect("/signup");
+      } else {
+        const query = `INSERT INTO user_login_info (first_name, last_name, email, password, category) VALUES (?, ?, ?, ?, ?)`;
+        database.query(
+          query,
+          [fname, lname, email, password[0], category],
+          function (error, result) {
+            if (error) {
+              console.error("Error inserting data:", error);
+              request.session.error = error;
+              // Handle error appropriately
+            } else {
+              console.log("Data inserted successfully");
+              // Handle successful insertion
+              response.redirect("/");
+            }
+          }
+        );
       }
-    );
+    });
   } else {
-    response.send("Enter Details");
+    request.session.error = "Fill all details";
+    response.redirect("/signup");
     response.end();
   }
 });
