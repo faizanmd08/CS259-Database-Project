@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IIT Patna</title>
+    <!-- Bootstrap CSS (latest version) -->
+    <link rel="stylesheet" type="text/css" href="./bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="./bootstrap-datepicker.css" />
+    <script type="text/javascript" src="./jquery.js"></script>
+    <script type="text/javascript" src="./bootstrap.js"></script>
+    <script type="text/javascript" src=".//bootstrap-datepicker.js"></script>
+    <link href="./bootstrap.min.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+    <style>
+      html,
+      body {
+        background-color: lightgray;
+      }
+
+      .Blinkingtext {
+        line-height: 1.1;
+        margin-top: 10px;
+        font-size: 16px;
+        color: rgb(225, 4, 37);
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-align: center;
+        font-family: "Noto Serif", serif;
+        animation: blinker 1s linear infinite;
+      }
+
+      @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      .header {
+        background-color: lightblue;
+        color: white;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        text-align: center;
+      }
+
+      .content-container {
+        /* display:flex; */
+        padding-top: 50px;
+      }
+
+      .submit {
+        margin-right: 10px; /* Adjusted margin for shifting the button to the right */
+      }
+
+      .well {
+        width: 66%;
+        margin: 0 17%;
+        font-size: 13px;
+      }
+
+      /* Additional styling */
+      .mb-3 {
+        margin-bottom: 20px;
+      }
+
+      .panel-heading {
+        background-color: lightblue;
+        color: white;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+
+      .panel-body {
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      h4 {
+        margin-top: 0;
+      }
+
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      .address-heading {
+        font-size: 1.2em;
+        font-family: "Oswald", sans-serif !important;
+        text-align: left !important;
+        padding: 0px 10px 0px 0px !important;
+        font-family: "Noto Serif", serif;
+        font-weight: bold;
+        color: #414002;
+      }
+      .permanentAddress1 {
+        font-size: 15px;
+      }
+      .permanentAddress2 {
+        font-size: 15px;
+      }
+      .permanentAddress3 {
+        font-size: 15px;
+      }
+      .permanentAddress4 {
+        font-size: 15px;
+      }
+      .permanentAddress5 {
+        font-size: 15px;
+      }
+      .heading {
+        justify-content: center;
+        align-items: center;
+      }
+      .form_title {
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+
+    <script src="js/script.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Sans&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto+Serif&amp;display=swap"
+      rel="stylesheet"
+    />
+    <title>Faculty Login</title>
+  </head>
+  <body>
+    <div class="box">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8 mx-auto">
+            <div class="header">
+              <h1>Indian Institute of Technology Patna</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-12 well">
+        <form
+          class="form-horizontal"
+          action=""
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <legend>
+            <div class="row">
+              <div class="col-md-8">
+                <h4>
+                  Welcome :
+                  <font color="#025198"
+                    ><strong>Mohammad&nbsp;Faizan</strong></font
+                  >
+                </h4>
+              </div>
+
+              <div class="col-md-3">
+                <a
+                  href="#"
+                  class="btn btn-sm btn-info pull-right"
+                  onclick="get_username('Ma&nbsp;Agarwal', 711)"
+                  data-target="#passModal"
+                  data-toggle="modal"
+                  >Change Password</a
+                >
+              </div>
+              <div class="col-md-1">
+                <a
+                  href="https://ofa.iiti.ac.in/facrec_che_2023_july_02/facultypanel/logout"
+                  class="btn btn-sm btn-success pull-right"
+                  >Logout</a
+                >
+              </div>
+            </div>
+          </legend>
+
+          <div class="row mt-5">
+            <div class="col-md-12 text-center">
+              <h4 style="font-weight: bold">2. Educational Qualifications</h4>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-success">
+                <div class="panel-heading">(A) Educational Qualifications</div>
+
+                <div class="panel-body">
+                  <div class="col-md-10">
+                    <div class="row col-md-6">
+                      <div class="mb-3">
+                        <label
+                          for="university"
+                          class="form-label address-heading"
+                          >University/Institute</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="university"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="phdSupervisor"
+                          class="form-label address-heading"
+                          >Name of PhD Supervisor</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="phdSupervisor"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="thesisDefenceDate"
+                          class="form-label address-heading"
+                          >Date of Successful Thesis Defence</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="thesisDefenceDate"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row col-md-6">
+                      <div class="mb-3">
+                        <label
+                          for="department"
+                          class="form-label address-heading"
+                          >Department</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="department"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="joiningYear"
+                          class="form-label address-heading"
+                          >Year of Joining</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="joiningYear"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="awardDate"
+                          class="form-label address-heading"
+                          >Date of Award</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="awardDate"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <div class="mb-3">
+                      <label
+                        for="phdThesisTitle"
+                        class="form-label address-heading"
+                        >Title of PhD Thesis</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="phdThesisTitle"
+                        placeholder="Title of PhD Thesis"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add the following div for Educational Qualifications -->
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-success">
+                <div class="panel-heading">
+                  (B) Academic Details - M. Tech./ M.E./ PG Details
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <!-- Column 1 -->
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label
+                          for="degreeCertificate"
+                          class="form-label address-heading"
+                          >Degree/Certificate</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="degreeCertificate"
+                          placeholder="Degree/Certificate"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="branchStream"
+                          class="form-label address-heading"
+                          >Branch/Stream</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="branchStream"
+                          placeholder="Branch/Stream"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="completionYear"
+                          class="form-label address-heading"
+                          >Year of Completion</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="completionYear"
+                          placeholder="Year of Completion"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="percentageCGPA"
+                          class="form-label address-heading"
+                          >Percentage/CGPA</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="percentageCGPA"
+                          placeholder="Percentage/CGPA"
+                        />
+                      </div>
+                    </div>
+                    <!-- Column 2 -->
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label
+                          for="universityInstitute"
+                          class="form-label address-heading"
+                          >University/Institute</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="universityInstitute"
+                          placeholder="University/Institute"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="joiningYear"
+                          class="form-label address-heading"
+                          >Year of Joining</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="joiningYear"
+                          placeholder="Year of Joining"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="durationYears"
+                          class="form-label address-heading"
+                          >Duration (in years)</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="durationYears"
+                          placeholder="Duration (in years)"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="divisionClass"
+                          class="form-label address-heading"
+                          >Division/Class</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="divisionClass"
+                          placeholder="Division/Class"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-success">
+                <div class="panel-heading" required>
+                  (B) Academic Details - B. Tech./ B.E./ UG Details
+                </div>
+                <div class="panel-body">
+                  <div class="row">
+                    <!-- Column 1 -->
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label
+                          for="degreeCertificate"
+                          class="form-label address-heading"
+                          >Degree/Certificate</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="degreeCertificate"
+                          placeholder="Degree/Certificate"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="branchStream"
+                          class="form-label address-heading"
+                          >Branch/Stream</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="branchStream"
+                          placeholder="Branch/Stream"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="completionYear"
+                          class="form-label address-heading"
+                          >Year of Completion</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="completionYear"
+                          placeholder="Year of Completion"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="percentageCGPA"
+                          class="form-label address-heading"
+                          >Percentage/CGPA</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="percentageCGPA"
+                          placeholder="Percentage/CGPA"
+                        />
+                      </div>
+                    </div>
+                    <!-- Column 2 -->
+                    <div class="col-md-6">
+                      <div class="mb-3">
+                        <label
+                          for="universityInstitute"
+                          class="form-label address-heading"
+                          >University/Institute</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="universityInstitute"
+                          placeholder="University/Institute"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="joiningYear"
+                          class="form-label address-heading"
+                          >Year of Joining</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="joiningYear"
+                          placeholder="Year of Joining"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="durationYears"
+                          class="form-label address-heading"
+                          >Duration (in years)</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="durationYears"
+                          placeholder="Duration (in years)"
+                        />
+                      </div>
+                      <div class="mb-3">
+                        <label
+                          for="divisionClass"
+                          class="form-label address-heading"
+                          >Division/Class</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="divisionClass"
+                          placeholder="Division/Class"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-success">
+                <div class="panel-heading">(D) Academic Details - School *</div>
+                <div class="panel-body">
+                  <table class="table table-bordered">
+                    <tbody>
+                      <tr height="30px">
+                        <th class="col-md-3">10th/12th/HSC/Diploma</th>
+                        <th class="col-md-3">School</th>
+                        <th class="col-md-1">Year of Passing</th>
+                        <th class="col-md-2">Percentage/ Grade</th>
+                        <th class="col-md-2">Division/Class</th>
+                      </tr>
+
+                      <tr height="60px">
+                        <td class="col-md-2">
+                          <input
+                            id="hsc_ssc1"
+                            name="hsc_ssc[]"
+                            type="text"
+                            value="12th/HSC/Diploma"
+                            placeholder=""
+                            class="form-control input-md"
+                            readonly=""
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="school1"
+                            name="school[]"
+                            type="text"
+                            value="Non nisi consectetur."
+                            placeholder="School"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="passing_year1"
+                            name="passing_year[]"
+                            type="text"
+                            value="4eplL"
+                            placeholder="Passing Year"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="s_perce1"
+                            name="s_perce[]"
+                            type="text"
+                            value="657 V"
+                            placeholder="Percentage/Grade"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="s_rank1"
+                            name="s_rank[]"
+                            type="text"
+                            value="Harum"
+                            placeholder="Percentage/Grade"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                      </tr>
+
+                      <tr height="60px">
+                        <td class="col-md-2">
+                          <input
+                            id="hsc_ssc2"
+                            name="hsc_ssc[]"
+                            type="text"
+                            value="10th"
+                            placeholder=""
+                            class="form-control input-md"
+                            readonly=""
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="school2"
+                            name="school[]"
+                            type="text"
+                            value="Vitae dolor quos minima doloribus cumque."
+                            placeholder="School"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="passing_year2"
+                            name="passing_year[]"
+                            type="text"
+                            value="ZAImK"
+                            placeholder="Passing Year"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="s_perce2"
+                            name="s_perce[]"
+                            type="text"
+                            value="818 T"
+                            placeholder="Percentage/Grade"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="s_rank2"
+                            name="s_rank[]"
+                            type="text"
+                            value="Tempo"
+                            placeholder="Percentage/Grade"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-success">
+                <div class="panel-heading">
+                  (E) Additional Educational Qualification (If any)
+                  <button class="btn btn-sm btn-danger" id="add_more_acde">
+                    Add More
+                  </button>
+                </div>
+                <div class="panel-body">
+                  <table class="table table-bordered">
+                    <tbody id="acde">
+                      <tr height="30px">
+                        <th class="col-md-2">Degree/Certificate</th>
+                        <th class="col-md-2">University/Institute</th>
+                        <th class="col-md-2">Branch/Stream</th>
+                        <th class="col-md-1">Year of Joining</th>
+                        <th class="col-md-1">Year of Completion</th>
+                        <th class="col-md-1">Duration (in years)</th>
+                        <th class="col-md-3">Percentage/ CGPA</th>
+                        <th class="col-md-3">Division/Class</th>
+                      </tr>
+
+                      <tr height="60px">
+                        <td class="col-md-2">
+                          <input
+                            id="add_degree1"
+                            name="add_degree[]"
+                            type="text"
+                            value="966 Parker"
+                            placeholder="Degree"
+                            class="form-control input-md"
+                            maxlength="10"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_college1"
+                            name="add_college[]"
+                            type="text"
+                            value="1354 Reichert Parkway"
+                            placeholder="College"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_subjects1"
+                            name="add_subjects[]"
+                            type="text"
+                            value="3085 Ethelyn Stravenue"
+                            placeholder="Subjects"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_yoj1"
+                            name="add_yoj[]"
+                            type="text"
+                            value="198 S"
+                            placeholder="Year of Joining"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_yog1"
+                            name="add_yog[]"
+                            type="text"
+                            value="356 T"
+                            placeholder="Year of Graduation"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_duration1"
+                            name="add_duration[]"
+                            type="text"
+                            value="2075"
+                            placeholder="Duration"
+                            class="form-control input-md"
+                            maxlength="4"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_perce1"
+                            name="add_perce[]"
+                            type="text"
+                            value="5108 "
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_rank1"
+                            name="add_rank[]"
+                            type="text"
+                            value="Imped"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                      </tr>
+
+                      <tr height="60px">
+                        <td class="col-md-2">
+                          <input
+                            id="add_degree2"
+                            name="add_degree[]"
+                            type="text"
+                            value="25064 Feli"
+                            placeholder="Degree"
+                            class="form-control input-md"
+                            maxlength="10"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_college2"
+                            name="add_college[]"
+                            type="text"
+                            value="626 Otho Freeway"
+                            placeholder="College"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_subjects2"
+                            name="add_subjects[]"
+                            type="text"
+                            value="8482 Rogahn Corners"
+                            placeholder="Subjects"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_yoj2"
+                            name="add_yoj[]"
+                            type="text"
+                            value="5909 "
+                            placeholder="Year of Joining"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_yog2"
+                            name="add_yog[]"
+                            type="text"
+                            value="1116 "
+                            placeholder="Year of Graduation"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_duration2"
+                            name="add_duration[]"
+                            type="text"
+                            value="7948"
+                            placeholder="Duration"
+                            class="form-control input-md"
+                            maxlength="4"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_perce2"
+                            name="add_perce[]"
+                            type="text"
+                            value="2578 "
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_rank2"
+                            name="add_rank[]"
+                            type="text"
+                            value="Adipi"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                      </tr>
+
+                      <tr height="60px">
+                        <td class="col-md-2">
+                          <input
+                            id="add_degree3"
+                            name="add_degree[]"
+                            type="text"
+                            value="3694 Althe"
+                            placeholder="Degree"
+                            class="form-control input-md"
+                            maxlength="10"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_college3"
+                            name="add_college[]"
+                            type="text"
+                            value="2196 Flatley Place"
+                            placeholder="College"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_subjects3"
+                            name="add_subjects[]"
+                            type="text"
+                            value="632 Kendall Streets"
+                            placeholder="Subjects"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_yoj3"
+                            name="add_yoj[]"
+                            type="text"
+                            value="681 M"
+                            placeholder="Year of Joining"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_yog3"
+                            name="add_yog[]"
+                            type="text"
+                            value="1828 "
+                            placeholder="Year of Graduation"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_duration3"
+                            name="add_duration[]"
+                            type="text"
+                            value="2225"
+                            placeholder="Duration"
+                            class="form-control input-md"
+                            maxlength="4"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_perce3"
+                            name="add_perce[]"
+                            type="text"
+                            value="518 L"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_rank3"
+                            name="add_rank[]"
+                            type="text"
+                            value="Illum"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                      </tr>
+
+                      <tr height="60px">
+                        <td class="col-md-2">
+                          <input
+                            id="add_degree4"
+                            name="add_degree[]"
+                            type="text"
+                            value="795 Quinte"
+                            placeholder="Degree"
+                            class="form-control input-md"
+                            maxlength="10"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_college4"
+                            name="add_college[]"
+                            type="text"
+                            value="31726 Rodriguez Prairie"
+                            placeholder="College"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_subjects4"
+                            name="add_subjects[]"
+                            type="text"
+                            value="180 Botsford Road"
+                            placeholder="Subjects"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_yoj4"
+                            name="add_yoj[]"
+                            type="text"
+                            value="375 M"
+                            placeholder="Year of Joining"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_yog4"
+                            name="add_yog[]"
+                            type="text"
+                            value="4494 "
+                            placeholder="Year of Graduation"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_duration4"
+                            name="add_duration[]"
+                            type="text"
+                            value="380"
+                            placeholder="Duration"
+                            class="form-control input-md"
+                            maxlength="4"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_perce4"
+                            name="add_perce[]"
+                            type="text"
+                            value="275 D"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_rank4"
+                            name="add_rank[]"
+                            type="text"
+                            value="Aliqu"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                      </tr>
+
+                      <tr height="60px">
+                        <td class="col-md-2">
+                          <input
+                            id="add_degree5"
+                            name="add_degree[]"
+                            type="text"
+                            value="4492 Leora"
+                            placeholder="Degree"
+                            class="form-control input-md"
+                            maxlength="10"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_college5"
+                            name="add_college[]"
+                            type="text"
+                            value="8327 O'Kon Rest"
+                            placeholder="College"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_subjects5"
+                            name="add_subjects[]"
+                            type="text"
+                            value="939 Carolina Circle"
+                            placeholder="Subjects"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_yoj5"
+                            name="add_yoj[]"
+                            type="text"
+                            value="84804"
+                            placeholder="Year of Joining"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_yog5"
+                            name="add_yog[]"
+                            type="text"
+                            value="978 E"
+                            placeholder="Year of Graduation"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_duration5"
+                            name="add_duration[]"
+                            type="text"
+                            value="9339"
+                            placeholder="Duration"
+                            class="form-control input-md"
+                            maxlength="4"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_perce5"
+                            name="add_perce[]"
+                            type="text"
+                            value="735 L"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_rank5"
+                            name="add_rank[]"
+                            type="text"
+                            value="Cumqu"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                      </tr>
+
+                      <tr height="60px">
+                        <td class="col-md-2">
+                          <input
+                            id="add_degree6"
+                            name="add_degree[]"
+                            type="text"
+                            value="7714 Corwi"
+                            placeholder="Degree"
+                            class="form-control input-md"
+                            maxlength="10"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_college6"
+                            name="add_college[]"
+                            type="text"
+                            value="2136 Klein Groves"
+                            placeholder="College"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_subjects6"
+                            name="add_subjects[]"
+                            type="text"
+                            value="9199 Eula Track"
+                            placeholder="Subjects"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_yoj6"
+                            name="add_yoj[]"
+                            type="text"
+                            value="44955"
+                            placeholder="Year of Joining"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_yog6"
+                            name="add_yog[]"
+                            type="text"
+                            value="18030"
+                            placeholder="Year of Graduation"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_duration6"
+                            name="add_duration[]"
+                            type="text"
+                            value="815"
+                            placeholder="Duration"
+                            class="form-control input-md"
+                            maxlength="4"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_perce6"
+                            name="add_perce[]"
+                            type="text"
+                            value="72170"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_rank6"
+                            name="add_rank[]"
+                            type="text"
+                            value="Autem"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                      </tr>
+
+                      <tr height="60px">
+                        <td class="col-md-2">
+                          <input
+                            id="add_degree7"
+                            name="add_degree[]"
+                            type="text"
+                            value="1925 Borer"
+                            placeholder="Degree"
+                            class="form-control input-md"
+                            maxlength="10"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_college7"
+                            name="add_college[]"
+                            type="text"
+                            value="533 Aglae Trace"
+                            placeholder="College"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_subjects7"
+                            name="add_subjects[]"
+                            type="text"
+                            value="91625 Agnes Common"
+                            placeholder="Subjects"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_yoj7"
+                            name="add_yoj[]"
+                            type="text"
+                            value="437 E"
+                            placeholder="Year of Joining"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_yog7"
+                            name="add_yog[]"
+                            type="text"
+                            value="7834 "
+                            placeholder="Year of Graduation"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_duration7"
+                            name="add_duration[]"
+                            type="text"
+                            value="640"
+                            placeholder="Duration"
+                            class="form-control input-md"
+                            maxlength="4"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_perce7"
+                            name="add_perce[]"
+                            type="text"
+                            value="93366"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_rank7"
+                            name="add_rank[]"
+                            type="text"
+                            value="Recus"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                      </tr>
+
+                      <tr height="60px">
+                        <td class="col-md-2">
+                          <input
+                            id="add_degree8"
+                            name="add_degree[]"
+                            type="text"
+                            value="6529 Stoke"
+                            placeholder="Degree"
+                            class="form-control input-md"
+                            maxlength="10"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_college8"
+                            name="add_college[]"
+                            type="text"
+                            value="54327 Douglas Cliffs"
+                            placeholder="College"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_subjects8"
+                            name="add_subjects[]"
+                            type="text"
+                            value="53866 Hagenes Field"
+                            placeholder="Subjects"
+                            class="form-control input-md"
+                            maxlength="80"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_yoj8"
+                            name="add_yoj[]"
+                            type="text"
+                            value="321 T"
+                            placeholder="Year of Joining"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_yog8"
+                            name="add_yog[]"
+                            type="text"
+                            value="823 F"
+                            placeholder="Year of Graduation"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                        <td class="col-md-2">
+                          <input
+                            id="add_duration8"
+                            name="add_duration[]"
+                            type="text"
+                            value="8049"
+                            placeholder="Duration"
+                            class="form-control input-md"
+                            maxlength="4"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_perce8"
+                            name="add_perce[]"
+                            type="text"
+                            value="71140"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+
+                        <td class="col-md-2">
+                          <input
+                            id="add_rank8"
+                            name="add_rank[]"
+                            type="text"
+                            value="Eaque"
+                            placeholder="Percentage"
+                            class="form-control input-md"
+                            maxlength="5"
+                            required=""
+                          />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-1">
+              <a
+                href="https://ofa.iiti.ac.in/facrec_che_2023_july_02/facultypanel"
+                class="btn btn-primary pull-left"
+                ><i class="glyphicon glyphicon-fast-backward"></i
+              ></a>
+            </div>
+
+            <div class="col-md-11">
+              <button
+                id="submit"
+                type="submit"
+                name="submit"
+                value="Submit"
+                class="btn btn-success pull-right"
+                style="margin-left: 75%"
+              >
+                SAVE &amp; NEXT
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Bootstrap Scripts (latest version) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

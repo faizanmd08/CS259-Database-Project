@@ -82,6 +82,10 @@ router.post("/signup", function (request, response, next) {
   }
 });
 
+router.post("/page2", function (request, response, next) {
+  response.redirect("/page2");
+});
+
 router.get("/logout", function (request, response, next) {
   request.session.destroy();
   response.redirect("/");

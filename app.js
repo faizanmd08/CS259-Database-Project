@@ -36,6 +36,38 @@ app.get("/form", function (req, res) {
   res.render("form", { title: "Express", session: req.session }); // Renders the form.ejs view
 });
 
+app.get("/page2", function (req, res) {
+  res.render("form2", { title: "Express", session: req.session }); // Renders the form.ejs view
+});
+
+app.get("/page3", function (req, res) {
+  res.render("form3", { title: "Express", session: req.session }); // Renders the form.ejs view
+});
+
+app.get("/page4", function (req, res) {
+  res.render("form4", { title: "Express", session: req.session }); // Renders the form.ejs view
+});
+
+app.get("/page5", function (req, res) {
+  res.render("form5", { title: "Express", session: req.session }); // Renders the form.ejs view
+});
+
+app.get("/page6", function (req, res) {
+  res.render("form6", { title: "Express", session: req.session }); // Renders the form.ejs view
+});
+
+app.get("/page7", function (req, res) {
+  res.render("form7", { title: "Express", session: req.session }); // Renders the form.ejs view
+});
+
+app.get("/declaration", function (req, res) {
+  res.render("declaration", { title: "Express", session: req.session }); // Renders the form.ejs view
+});
+
+app.get("/confir_page", function (req, res) {
+  res.render("confir_page", { title: "Express", session: req.session }); // Renders the form.ejs view
+});
+
 app.get("/signup", function (req, res) {
   res.render("signup", { title: "Express", session: req.session }); // Renders the form.ejs view
 });
