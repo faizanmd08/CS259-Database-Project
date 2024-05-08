@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var session = require("express-session");
+var database = require("./database.js");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -32,8 +33,34 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
-app.get("/form", function (req, res) {
-  res.render("form", { title: "Express", session: req.session }); // Renders the form.ejs view
+function fetchDataFromDatabase(session, callback) {
+  const id = session.user_id;
+  const query = `SELECT * FROM page1 WHERE user_id = "${id}"`;
+  database.query(query, function (error, data) {
+    if (error) {
+      console.error("Error fetching data:", error);
+      callback({});
+    } else {
+      if (data.length > 0) {
+        console.log("Data fetched from database:", data);
+        callback(data[0]); // Assuming only one row is expected
+      } else {
+        console.log("No data found in database.");
+        callback({});
+      }
+    }
+  });
+}
+
+app.get("/form", (req, res) => {
+  // Fetch data from the database
+  fetchDataFromDatabase(req.session, (data) => {
+    res.render("form", {
+      title: "Express",
+      session: req.session,
+      formData: data,
+    });
+  });
 });
 
 app.get("/page2", function (req, res) {
