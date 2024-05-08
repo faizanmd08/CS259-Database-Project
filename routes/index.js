@@ -10,6 +10,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.post("/login", function (request, response, next) {
+  //console.log(request.body);
   var user_email_address = request.body.user_email_address;
   var user_password = request.body.user_password;
   if (user_email_address && user_password) {
@@ -20,7 +21,7 @@ router.post("/login", function (request, response, next) {
         for (var count = 0; count < data.length; count++) {
           if (data[count].password === user_password) {
             request.session.first_name = data[count].first_name;
-            request.session.user_id = data[count].user_id;
+            session.user_id = data[count].user_id;
             response.redirect("/form");
           } else {
             request.session.error = "Incorrect Password";
@@ -83,7 +84,32 @@ router.post("/signup", function (request, response, next) {
 });
 
 router.post("/page2", function (request, response, next) {
-  response.redirect("/page2");
+  // console.log(request.body);
+  let info = [];
+  info.push(session.user_id);
+
+  for (let it in request.body) {
+    info.push(request.body[it]);
+  }
+  console.log(info.length);
+  const query = `INSERT INTO page1 (user_id, advert_number, application_number, department, date_of_application, post_applied_for, First_name, Last_name, DOB, Marital_Status, Fathers_Name, Middle_name, Nationality, Gender, category, ID_Proof, Correspondence_Address, Permanent_Address, Mobile, Alternate_Mobile, Landline_Number, email, alt_email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
+  database.query(query, info, function (error, result) {
+    if (error) {
+      console.error("Error inserting data:", error);
+      request.session.error = error;
+      // Handle error appropriately
+    } else {
+      console.log("Data inserted successfully");
+      // Handle successful insertion
+      response.redirect("/page3");
+    }
+  });
+});
+
+router.post("/page3", function (request, response, next) {
+  console.log(request.body);
+
+  response.redirect("/page4");
 });
 
 router.get("/logout", function (request, response, next) {
