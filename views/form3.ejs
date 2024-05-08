@@ -5,13 +5,19 @@
     <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1.0" />
     <title>IIT Patna</title>
     <!-- Bootstrap CSS (latest version) -->
-    <link rel="stylesheet" type="text/css" href="./bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="./bootstrap-datepicker.css" />
-    <script type="text/javascript" src="./jquery.js"></script>
-    <script type="text/javascript" src="./bootstrap.js"></script>
-    <script type="text/javascript" src=".//bootstrap-datepicker.js"></script>
-    <link href="./bootstrap.min.css" rel="stylesheet" />
-    <link href="/public/stylesheets/login.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/stylesheets/bootstrap-datepicker.css"
+    />
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script
+      type="text/javascript"
+      src="/javascripts/bootstrap-datepicker.js"
+    ></script>
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
     <style>
       html,
       body {
@@ -152,28 +158,21 @@
           <legend>
             <div class="row">
               <div class="col-md-8">
-                <h4>
+                <h4 class="Welcome">
                   Welcome :
                   <font color="#025198"
-                    ><strong>Mohammad&nbsp;Faizan</strong></font
+                    ><strong> <%= session.first_name %></strong></font
                   >
                 </h4>
               </div>
 
               <div class="col-md-3">
-                <a
-                  href="#"
-                  class="btn btn-sm btn-info pull-right"
-                  onclick="get_username('Ma&nbsp;Agarwal', 711)"
-                  data-target="#passModal"
-                  data-toggle="modal"
+                <a href="#" class="btn btn-lg btn-info pull-right btn-light"
                   >Change Password</a
                 >
               </div>
               <div class="col-md-1">
-                <a
-                  href="https://ofa.iiti.ac.in/facrec_che_2023_july_02/facultypanel/logout"
-                  class="btn btn-sm btn-success pull-right"
+                <a href="/" class="btn btn-lg btn-success pull-right btn-light"
                   >Logout</a
                 >
               </div>
@@ -1465,23 +1464,19 @@ Nesciunt sunt quos impedit qunameem quas architecto.</textarea
           <div class="form-group">
             <div class="col-md-1">
               <a
-                href="https://ofa.iiti.ac.in/facrec_che_2023_july_02/acde"
+                href="/page2"
                 class="btn btn-primary pull-left"
+                previewlistener="true"
                 ><i class="glyphicon glyphicon-fast-backward"></i
               ></a>
             </div>
 
-            <div class="col-md-11">
-              <button
-                name="submit"
-                type="submit"
-                name="submit"
-                value="Submit"
-                class="btn btn-success pull-right"
-                style="margin-left: 75%"
-              >
-                SAVE &amp; NEXT
-              </button>
+            <div class="row mt-3">
+              <div class="col-md-12 text-end">
+                <button type="submit" class="btn btn-primary submit">
+                  Save and Next
+                </button>
+              </div>
             </div>
           </div>
         </form>
