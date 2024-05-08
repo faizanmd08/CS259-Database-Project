@@ -33,9 +33,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
-function fetchDataFromDatabase(session, callback) {
+function fetchDataFromDatabase(session, form_number, callback) {
   const id = session.user_id;
-  const query = `SELECT * FROM page1 WHERE user_id = "${id}"`;
+  const query = `SELECT * FROM page${form_number} WHERE user_id = "${id}"`;
   database.query(query, function (error, data) {
     if (error) {
       console.error("Error fetching data:", error);
@@ -54,7 +54,7 @@ function fetchDataFromDatabase(session, callback) {
 
 app.get("/form", (req, res) => {
   // Fetch data from the database
-  fetchDataFromDatabase(req.session, (data) => {
+  fetchDataFromDatabase(req.session, 1, (data) => {
     res.render("form", {
       title: "Express",
       session: req.session,
