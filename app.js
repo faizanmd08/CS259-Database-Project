@@ -64,27 +64,69 @@ app.get("/form", (req, res) => {
 });
 
 app.get("/page2", function (req, res) {
-  res.render("form2", { title: "Express", session: req.session }); // Renders the form.ejs view
+  //res.render("form2", { title: "Express", session: req.session }); // Renders the form.ejs view
+  fetchDataFromDatabase(req.session, 2, (data) => {
+    res.render("form2", {
+      title: "Express",
+      session: req.session,
+      formData: data,
+    });
+  });
 });
 
 app.get("/page3", function (req, res) {
-  res.render("form3", { title: "Express", session: req.session }); // Renders the form.ejs view
+  //res.render("form3", { title: "Express", session: req.session }); // Renders the form.ejs view
+  fetchDataFromDatabase(req.session, 3, (data) => {
+    res.render("form3", {
+      title: "Express",
+      session: req.session,
+      formData: data,
+    });
+  });
 });
 
 app.get("/page4", function (req, res) {
-  res.render("form4", { title: "Express", session: req.session }); // Renders the form.ejs view
+  // res.render("form4", { title: "Express", session: req.session }); // Renders the form.ejs view
+  fetchDataFromDatabase(req.session, 4, (data) => {
+    res.render("form4", {
+      title: "Express",
+      session: req.session,
+      formData: data,
+    });
+  });
 });
 
 app.get("/page5", function (req, res) {
-  res.render("form5", { title: "Express", session: req.session }); // Renders the form.ejs view
+  //res.render("form5", { title: "Express", session: req.session }); // Renders the form.ejs view
+  fetchDataFromDatabase(req.session, 5, (data) => {
+    res.render("form5", {
+      title: "Express",
+      session: req.session,
+      formData: data,
+    });
+  });
 });
 
 app.get("/page6", function (req, res) {
-  res.render("form6", { title: "Express", session: req.session }); // Renders the form.ejs view
+  //res.render("form6", { title: "Express", session: req.session }); // Renders the form.ejs view
+  fetchDataFromDatabase(req.session, 6, (data) => {
+    res.render("form6", {
+      title: "Express",
+      session: req.session,
+      formData: data,
+    });
+  });
 });
 
 app.get("/page7", function (req, res) {
-  res.render("form7", { title: "Express", session: req.session }); // Renders the form.ejs view
+  // res.render("form7", { title: "Express", session: req.session }); // Renders the form.ejs view
+  fetchDataFromDatabase(req.session, 7, (data) => {
+    res.render("form7", {
+      title: "Express",
+      session: req.session,
+      formData: data,
+    });
+  });
 });
 
 app.get("/declaration", function (req, res) {
