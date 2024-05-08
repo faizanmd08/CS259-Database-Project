@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IIT Patna</title>
+    <!-- Bootstrap CSS (latest version) -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/stylesheets/bootstrap-datepicker.css"
+    />
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script
+      type="text/javascript"
+      src="/javascripts/bootstrap-datepicker.js"
+    ></script>
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
+    <link href="/stylesheets/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div
+        class="container-fluname d-flex justify-content-center align-items-center"
+      >
+        <span class="navbar-brand mb-4 h1 form-name"
+          >Application for Faculty Position</span
+        >
+      </div>
+    </nav>
+    <main>
+      <form
+        class="form-horizontal"
+        action="/declaration"
+        method="post"
+        onsubmit="return validateForm()"
+      >
+        <div class="">
+          <div class="">&nbsp;</div>
+          <div class="">
+            <div class="col-xs-24 col-sm-24 col-md-24 well">
+              <div>
+                <legend>
+                  <div class="row">
+                    <div class="col-md-8">
+                      <h4 class="Welcome">
+                        Welcome :
+                        <font color="#025198"
+                          ><strong> <%= session.first_name %></strong></font
+                        >
+                      </h4>
+                    </div>
+                    <div class="col-md-3">
+                      <a
+                        href="#"
+                        class="btn btn-lg btn-info pull-right btn-light"
+                        >Change Password</a
+                      >
+                    </div>
+                    <div class="col-md-1">
+                      <a
+                        href="/"
+                        class="btn btn-lg btn-success pull-right btn-light"
+                        >Logout</a
+                      >
+                    </div>
+                  </div>
+                </legend>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="panel">
+                      <div class="panel-heading">23. Declaration *</div>
+                      <div class="panel-body">
+                        <div class="panel-body">
+                          <textarea
+                            id="special_research"
+                            name="special_research"
+                            style="
+                              min-width: 100%;
+                              min-height: 50px;
+                              text-align: left;
+                              padding: 6px 12px;
+                              background-color: #eeeeee;
+                              margin: 0px 0px 10px;
+                              color: #555555;
+                              font-family: 'Helvetica Neue', Arial, Helvetica,
+                                Arial;
+                            "
+                          >
+        I hereby declare that I have carefully read and understood the instructions and particulars mentioned in the advertisement and this application form. I further declare that all the entries along with the attachments uploaded in this form are true to the best of my knowledge and belief.</textarea
+                          >
+                          <div class="checkbox">
+                            <input
+                              type="checkbox"
+                              name="checkbox"
+                              id="checkID"
+                              value="text"
+                            />
+                            <label class="text" for="checkID"></label>
+                          </div>
+                        </div>
+                        <h5
+                          style="font-size: 14px; font-weight: bold; color: red"
+                        >
+                          Note: The form can be edited till the cutoff date of
+                          the rolling advertisement.
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr style="border-style: dashed" />
+                <div class="form-group">
+                  <div class="col-md-1">
+                    <a
+                      href="/page7"
+                      class="btn btn-primary pull-left"
+                      previewlistener="true"
+                      ><i class="glyphicon glyphicon-fast-backward"></i
+                    ></a>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-md-12 text-end">
+                      <button type="submit" class="btn btn-primary submit">
+                        Save and Download PDF
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <script>
+      function validateForm() {
+        var checkbox = document.getElementById("checkID");
+        if (!checkbox.checked) {
+          alert("Please check the declaration box before proceeding.");
+          return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+      }
+    </script>
+  </body>
+</html>

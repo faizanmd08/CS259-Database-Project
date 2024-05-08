@@ -18,1470 +18,877 @@
       src="/javascripts/bootstrap-datepicker.js"
     ></script>
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
-    <style>
-      html,
-      body {
-        background-color: lightgray;
-      }
-
-      .Blinkingtext {
-        line-height: 1.1;
-        margin-top: 10px;
-        font-size: 16px;
-        color: rgb(225, 4, 37);
-        margin-bottom: 10px;
-        font-weight: bold;
-        text-align: center;
-        font-family: "Noto Serif", serif;
-        animation: blinker 1s linear infinite;
-      }
-
-      @keyframes blinker {
-        50% {
-          opacity: 0;
-        }
-      }
-
-      .header {
-        background-color: lightblue;
-        color: white;
-        padding-top: 30px;
-        padding-bottom: 30px;
-        text-align: center;
-      }
-
-      .content-container {
-        /* display:flex; */
-        padding-top: 50px;
-      }
-
-      .submit {
-        margin-right: 10px; /* Adjusted margin for shifting the button to the right */
-      }
-
-      .well {
-        width: 66%;
-        margin: 0 17%;
-        font-size: 13px;
-      }
-
-      /* Additional styling */
-      .mb-3 {
-        margin-bottom: 20px;
-      }
-
-      .panel-heading {
-        background-color: lightblue;
-        color: white;
-        padding: 10px;
-        margin-bottom: 20px;
-      }
-
-      .panel-body {
-        background-color: white;
-        padding: 20px;
-        border: 1px solname #ddd;
-        border-radius: 5px;
-      }
-
-      h4 {
-        margin-top: 0;
-      }
-
-      .row {
-        margin-left: 0;
-        margin-right: 0;
-      }
-      .address-heading {
-        font-size: 1.2em;
-        font-family: "Oswald", sans-serif !important;
-        text-align: left !important;
-        padding: 0px 10px 0px 0px !important;
-        font-family: "Noto Serif", serif;
-        font-weight: bold;
-        color: #414002;
-      }
-      .permanentAddress1 {
-        font-size: 15px;
-      }
-      .permanentAddress2 {
-        font-size: 15px;
-      }
-      .permanentAddress3 {
-        font-size: 15px;
-      }
-      .permanentAddress4 {
-        font-size: 15px;
-      }
-      .permanentAddress5 {
-        font-size: 15px;
-      }
-      .heading {
-        justify-content: center;
-        align-items: center;
-      }
-      .form_title {
-        justify-content: center;
-        align-items: center;
-      }
-    </style>
-
-    <script src="js/script.js" defer></script>
-    <link
-      href="https://fonts.googleapis.com/css?family=Oswald"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Noto+Sans&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Noto+Serif&amp;display=swap"
-      rel="stylesheet"
-    />
+    <link href="/stylesheets/forms.css" rel="stylesheet" />
     <title>Faculty Login</title>
   </head>
   <body>
-    <div class="box">
-      <div class="container-fluname">
-        <div class="row">
-          <div class="col-md-8 mx-auto">
-            <div class="header">
-              <h1>Indian Institute of Technology Patna</h1>
-            </div>
-          </div>
-        </div>
+    <!-- <div class="box"> -->
+    <nav class="navbar bg-body-tertiary">
+      <div
+        class="container-fluname d-flex justify-content-center align-items-center"
+      >
+        <span class="navbar-brand mb-4 h1 form-name"
+          >Application for Faculty Position</span
+        >
       </div>
+    </nav>
 
-      <div class="col-xs-12 col-sm-12 col-md-12 well">
-        <form class="form-horizontal" action="/page3" method="post">
-          <legend>
-            <div class="row">
-              <div class="col-md-8">
-                <h4 class="Welcome">
-                  Welcome :
-                  <font color="#025198"
-                    ><strong> <%= session.first_name %></strong></font
-                  >
-                </h4>
-              </div>
-
-              <div class="col-md-3">
-                <a href="#" class="btn btn-lg btn-info pull-right btn-light"
-                  >Change Password</a
+    <div class="col-xs-12 col-sm-12 col-md-12 well">
+      <form class="form-horizontal" action="/page3" method="post">
+        <legend>
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="Welcome">
+                Welcome :
+                <font color="#025198"
+                  ><strong> <%= session.first_name %></strong></font
                 >
-              </div>
-              <div class="col-md-1">
-                <a href="/" class="btn btn-lg btn-success pull-right btn-light"
-                  >Logout</a
-                >
-              </div>
+              </h4>
             </div>
-          </legend>
 
-          <div class="row mt-5">
-            <div class="col-md-12 text-center">
-              <h4 style="font-weight: bold">3. Employment Details</h4>
+            <div class="col-md-3">
+              <a href="#" class="btn btn-lg btn-info pull-right btn-light"
+                >Change Password</a
+              >
+            </div>
+            <div class="col-md-1">
+              <a href="/" class="btn btn-lg btn-success pull-right btn-light"
+                >Logout</a
+              >
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="panel panel-success">
-                <div class="panel-heading">(A) Present Employment</div>
+        </legend>
+        <div class="box">
+        
+            <h4>3. Employment Details</h4>
+    
+            <section style="border: 1px solid #d6e9c6; margin-top: 10px">
+              <legend>(A) Present Employment</legend>
+              
                 <div class="panel-body">
-                  <div class="row">
-                    <!-- Column 1 -->
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label for="position" class="form-label"
-                          >Position</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="position"
-                          placeholder="Position"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="status" class="form-label">Status</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="status"
-                          placeholder="Status"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="dateLeaving" class="form-label"
-                          >Date of Leaving (Continue if working)</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="dateLeaving"
-                          placeholder="Date of Leaving"
-                        />
-                      </div>
+                  <div class="twoInARow">
+                    <div class="inputBox">
+                      <label for="present_position">Position:</label>
+                      <input
+                        type="text"
+                        id="present_position"
+                        name="present_emp_position"
+                        required
+                      /><br />
                     </div>
-                    <!-- Column 2 -->
-                    <div class="col-md-6">
-                      <div class="mb-3">
-                        <label for="organization" class="form-label"
-                          >Organization/Institution</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="organization"
-                          placeholder="Organization/Institution"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="joiningDate" class="form-label"
-                          >Date of Joining</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="joiningDate"
-                          placeholder="Date of Joining"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="duration" class="form-label"
-                          >Duration (in years & months)</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          name="duration"
-                          placeholder="Duration (in years & months)"
-                        />
-                      </div>
+                    <div class="inputBox">
+                      <label for="present_organization"
+                        >Organization /Institution:</label
+                      >
+                      <input
+                        type="text"
+                        id="present_organization"
+                        name="present_emp_org"
+                        required
+                      /><br />
+                    </div>
+                  </div>
+                  <div class="twoInARow">
+                    <div class="inputBox">
+                      <label for="present_status">Status:</label>
+                      <input
+                        type="text"
+                        id="present_status"
+                        name="present_emp_status"
+                        required
+                      /><br />
+                    </div>
+                    <div class="inputBox">
+                      <label for="present_join_date">Date of Joining:</label>
+                      <input
+                        type="date"
+                        id="present_join_date"
+                        name="present_emp_date_of_joining"
+                        required
+                      /><br />
+                    </div>
+                  </div>
+                  <div class="twoInARow">
+                    <div class="inputBox">
+                      <label for="present_leave_date">Date of Leaving:</label>
+                      <input
+                        type="date"
+                        id="present_leave_date"
+                        name="present_emp_date_of_leaving"
+                        placeholder="Continue if working"
+                      /><br />
+                    </div>
+                    <div class="inputBox">
+                      <label for="present_duration"
+                        >Duration (in years & months):</label
+                      >
+                      <input
+                        type="text"
+                        id="present_duration"
+                        name="present_emp_duration"
+                        required
+                      /><br />
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="panel panel-success">
-                <div class="panel-heading">
-                  (B) Employment History (After PhD, Starting with Latest)
-                  &nbsp;&nbsp;&nbsp;<button
-                    type="button"
-                    class="btn btn-sm btn-danger"
-                    name="add_more_exp"
-                  >
-                    Add Details
-                  </button>
-                </div>
-                <div class="panel-body">
-                  <table class="table table-bordered">
-                    <tbody name="exp">
-                      <tr height="30px">
-                        <th class="col-md-1">S. No.</th>
-                        <th class="col-md-3">Position</th>
-                        <th class="col-md-4">Organization/Institution</th>
-                        <th class="col-md-1">Date of Joining</th>
-                        <th class="col-md-1">Date of Leaving</th>
-                        <th class="col-md-2">
-                          Duration (in years &amp; months)
-                        </th>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">1</td>
-                        <td class="col-md-2">
-                          <input
-                            name="position1"
-                            value="Mollitia eveniet optio suscipit quibusdam."
-                            name="position[]"
-                            type="text"
-                            placeholder="Position"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="employer"
-                            value="Perspiciatis ex officia itaque adipisci quasi harum qui modi."
-                            name="employer[]"
-                            type="text"
-                            placeholder="Employer"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="doj"
-                            name="doj[]"
-                            value="Quos deserunt animi explicabo."
-                            type="text"
-                            placeholder="DD/MM/YYYY"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="dol"
-                            name="dol[]"
-                            value="Necessitatibus repudiandae ea vel eligendi exercitationem impedit."
-                            type="text"
-                            placeholder="DD/MM/YYYY"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="exp_duration[]"
-                            value="2024-03-06 21:01:52"
-                            type="text"
-                            placeholder="Duration"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-                      <tr height="60px">
-                        <td class="col-md-1">2</td>
-                        <td class="col-md-2">
-                          <input
-                            name="position2"
-                            value="Fugit nemo expedita eius."
-                            name="position[]"
-                            type="text"
-                            placeholder="Position"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="employer"
-                            value="Ducimus deserunt beatae similique."
-                            name="employer[]"
-                            type="text"
-                            placeholder="Employer"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="doj"
-                            name="doj[]"
-                            value="Velit reiciendis repellat iste harum optio."
-                            type="text"
-                            placeholder="DD/MM/YYYY"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="dol"
-                            name="dol[]"
-                            value="Repellat eaque libero rerum."
-                            type="text"
-                            placeholder="DD/MM/YYYY"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="exp_duration[]"
-                            value="2024-03-15 05:29:33"
-                            type="text"
-                            placeholder="Duration"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-                  <h4 style="color: red">
-                    <div>
-                      <textarea
-                        style="height: 50px; font-weight: bold; color: red"
-                        class="form-control input-md"
-                        name="teach_exp_declaration"
-                        readonly=""
-                        required=""
-                      >
-Experience : Minimum 10 years’ experience of which at least 4 years should be at the level of Associate Professor in IITs, IISc Bangalore, IIMs, NITIE Mumbai and IISERs.</textarea
-                      >
-                      <input
-                        type="radio"
-                        name="teach_exp"
-                        checked="checked"
-                        value="Yes"
-                        required=""
-                      />Yes
-
-                      <input
-                        type="radio"
-                        name="teach_exp"
-                        value="No"
-                        required=""
-                      />No
-                    </div>
-                  </h4>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="panel panel-success">
-                <div class="panel-heading">
-                  (C) Teaching Experience (After PhD)&nbsp;&nbsp;&nbsp;<button
-                    class="btn btn-sm btn-danger"
-                    name="add_more_t_exp"
-                  >
-                    Add Details
-                  </button>
-                </div>
-                <div class="panel-body">
-                  <table class="table table-bordered">
-                    <tbody name="t_exp">
-                      <tr height="30px">
-                        <th class="col-md-1">S. No.</th>
-                        <th class="col-md-2">Position</th>
-                        <th class="col-md-1">Employer</th>
-                        <th class="col-md-1">Course Taught</th>
-                        <th class="col-md-1">UG/PG</th>
-                        <th class="col-md-1">No. of Students</th>
-                        <th class="col-md-1">Date of Joining the Institute</th>
-                        <th class="col-md-1">Date of Leaving the Institute</th>
-                        <th class="col-md-1">
-                          Duration (in years &amp; months)
-                        </th>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">1</td>
-                        <td class="col-md-2">
-                          <input
-                            name="te_position1"
-                            name="te_position[]"
-                            type="text"
-                            value="Molestiae aliquam ducimus ullam incnameunt accusamus recusandae. Placeat qui saepe commodi at eligendi sapiente ipsam beatae. Sint occaecati dolores adipisci.Eos exercitationem velit quisquam sequi laborum eos. Tenetur optio reiciendis repudiandae tempore e"
-                            placeholder="Position"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="te_employer1"
-                            name="te_employer[]"
-                            type="text"
-                            value="Nam laboriosam labore tenetur rem dolorem. Quas quis accusamus cum autem nemo odio numquam. Atque cumque ut assumenda.Ipsam deleniti distinctio voluptatum. Quis possimus nostrum. Explicabo quis tempora nihil maiores error.Nihil necessitatibus architecto s"
-                            placeholder="Employer"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-2">
-                          <input
-                            name="te_course1"
-                            name="te_course[]"
-                            type="text"
-                            value="Bahrain"
-                            placeholder="Course Taught"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-2">
-                          <input
-                            name="te_ug_pg1"
-                            name="te_ug_pg[]"
-                            type="text"
-                            value="Quae sit officia deserunt vero explicabo ipsam sunt quisquam omnis. Quaerat assumenda sapiente perspiciatis doloribus. Vel necessitatibus eligendi aliquam.Quo illo accusantium distinctio sapiente saepe. Doloremque numquam recusandae ex quos cumque. Facere"
-                            placeholder="UG/PG"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-2">
-                          <input
-                            name="te_no_stu1"
-                            name="te_no_stu[]"
-                            type="text"
-                            value="619"
-                            placeholder="No. of Students"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-1">
-                          <input
-                            name="te_doj1"
-                            name="te_doj[]"
-                            type="text"
-                            value="Ratione incnameunt totam eius sed est nostrum consequuntur cumque. Animi pariatur accusantium corporis provnameent quo nemo. Illum officia alias aut iste ab quasi.Officiis deleniti impedit illo error pariatur. name qunameem placeat nobis inventore consequuntur re"
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="te_dol1"
-                            name="te_dol[]"
-                            type="text"
-                            value="Error quod cum nobis perspiciatis rem vel eaque dolores iste. Voluptas autem perspiciatis. Doloribus dignissimos eligendi nemo aut.Cupnameitate rerum dolore voluptate commodi perferendis nam itaque. Facilis beatae eligendi. Quo recusandae exercitationem ver"
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="te_duration1"
-                            name="te_duration[]"
-                            type="text"
-                            value="Ea soluta perspiciatis beatae possimus. Reiciendis corrupti quaerat magni. Cupnameitate voluptatem alias mollitia eius consequatur inventore blanditiis consequuntur error.Qunameem similique quae aspernatur placeat odit cum doloremque natus magnam. Explicabo e"
-                            placeholder="Duration"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">2</td>
-                        <td class="col-md-2">
-                          <input
-                            name="te_position2"
-                            name="te_position[]"
-                            type="text"
-                            value="Atque in vel quisquam. Consectetur in saepe. Dignissimos itaque occaecati quasi facilis sunt eius mollitia.Et hic dolorum veritatis rerum labore error inventore maiores. Quod fuga ratione maxime magnam laudantium aspernatur cupnameitate. Sapiente neque opti"
-                            placeholder="Position"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="te_employer2"
-                            name="te_employer[]"
-                            type="text"
-                            value="Vel iste modi. Voluptates commodi corporis consequuntur illum nobis qui saepe optio. Laboriosam ullam deleniti.Asperiores optio unde corporis quasi. Quasi ipsa adipisci vitae facilis ipsam. Odio corrupti saepe occaecati inventore doloribus neque cumque sa"
-                            placeholder="Employer"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-2">
-                          <input
-                            name="te_course2"
-                            name="te_course[]"
-                            type="text"
-                            value="China"
-                            placeholder="Course Taught"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-2">
-                          <input
-                            name="te_ug_pg2"
-                            name="te_ug_pg[]"
-                            type="text"
-                            value="Dignissimos molestiae illo cum quo consectetur. Commodi voluptatum voluptate. Mollitia reprehenderit a vel ratione aliquam.Quo repellat fugiat. Facilis ut autem quas dolor cumque voluptate nobis. Officia consectetur aspernatur impedit nulla quod totam mag"
-                            placeholder="UG/PG"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-2">
-                          <input
-                            name="te_no_stu2"
-                            name="te_no_stu[]"
-                            type="text"
-                            value="574"
-                            placeholder="No. of Students"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-1">
-                          <input
-                            name="te_doj2"
-                            name="te_doj[]"
-                            type="text"
-                            value="Natus ad delectus laboriosam omnis autem libero culpa libero delectus. Dolorem commodi nobis dolorum cum eaque qunameem facilis ducimus iusto. Molestiae officia laboriosam dolor voluptatibus autem.Voluptate itaque ut exercitationem esse. Soluta eos laborum "
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="te_dol2"
-                            name="te_dol[]"
-                            type="text"
-                            value="Mollitia nihil repudiandae reprehenderit name dolorem repellat ipsa. Tempore velit similique repellendus perferendis velit veritatis reiciendis dolorem accusantium. Vel vero a earum nulla illo fugiat aut.Quas voluptatem ex quia in accusamus deleniti name assu"
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="te_duration2"
-                            name="te_duration[]"
-                            type="text"
-                            value="Dolores velit illum rem asperiores enim cumque corrupti dolore. Ab maxime culpa consequatur. Similique dolores adipisci.Reprehenderit atque repellendus suscipit reprehenderit consequuntur voluptate aspernatur distinctio. Consequuntur vero tenetur ad tempo"
-                            placeholder="Duration"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">3</td>
-                        <td class="col-md-2">
-                          <input
-                            name="te_position3"
-                            name="te_position[]"
-                            type="text"
-                            value="Adipisci dolor aperiam excepturi sequi aliquname facilis laudantium quibusdam sequi. Deserunt sint omnis fugiat modi. Laborum dolore expedita est cupnameitate qui aut rerum.Pariatur quasi minus cum eligendi quos soluta. Provnameent itaque expedita. Iure accusan"
-                            placeholder="Position"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="te_employer3"
-                            name="te_employer[]"
-                            type="text"
-                            value="Suscipit culpa labore cum nostrum cumque quisquam. Soluta cupnameitate cum a nobis illum. Sapiente quibusdam rerum animi earum.Unde vel eligendi itaque autem quis aut dolor modi. Deserunt cupnameitate qunameem repellat dolore. Minima ipsa nostrum qui exercitati"
-                            placeholder="Employer"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-2">
-                          <input
-                            name="te_course3"
-                            name="te_course[]"
-                            type="text"
-                            value="Republic of Korea"
-                            placeholder="Course Taught"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-2">
-                          <input
-                            name="te_ug_pg3"
-                            name="te_ug_pg[]"
-                            type="text"
-                            value="Occaecati vero officiis. Dolor atque quam expedita. Officiis recusandae soluta non necessitatibus exercitationem enim laborum illum.Dicta optio aliquam. Ut error eum culpa non. Tenetur porro beatae consectetur hic.Facilis itaque officiis quos fugit tempor"
-                            placeholder="UG/PG"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-2">
-                          <input
-                            name="te_no_stu3"
-                            name="te_no_stu[]"
-                            type="text"
-                            value="624"
-                            placeholder="No. of Students"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-
-                        <td class="col-md-1">
-                          <input
-                            name="te_doj3"
-                            name="te_doj[]"
-                            type="text"
-                            value="Incnameunt repudiandae quod cumque aut odit illo. Esse officia ratione temporibus exercitationem necessitatibus hic reiciendis. Ex accusamus ratione distinctio.Pariatur libero nobis odit. Officiis quae autem. Eos at nisi distinctio ea sequi quod aliquam in."
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="te_dol3"
-                            name="te_dol[]"
-                            type="text"
-                            value="Eaque distinctio iste nulla vero ipsum. Aliquam accusamus beatae fuga. Minima deserunt sapiente beatae cum.Laborum eum exercitationem ea placeat esse est. Dolorem enim excepturi suscipit autem hic minima. Ad quisquam reprehenderit rerum soluta eius sint n"
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="te_duration3"
-                            name="te_duration[]"
-                            type="text"
-                            value="Nemo aspernatur error consectetur incnameunt recusandae praesentium voluptate itaque. Fugiat voluptatum explicabo doloribus doloremque ut aspernatur. Itaque error porro adipisci.Facere doloremque dolore. Eaque magni voluptatem eaque nulla enim velit et quib"
-                            placeholder="Duration"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="panel panel-success">
-                <div class="panel-heading">
-                  (D) Research Experience (Post PhD, including Post
-                  Doctoral)&nbsp;&nbsp;&nbsp;<button
-                    class="btn btn-sm btn-danger"
-                    name="add_more_r_exp"
-                  >
-                    Add Details
-                  </button>
-                </div>
-                <div class="panel-body">
-                  <table class="table table-bordered">
-                    <tbody name="r_exp">
-                      <tr height="30px">
-                        <th class="col-md-1">S. No.</th>
-                        <th class="col-md-1">Position</th>
-                        <th class="col-md-2">Institute</th>
-                        <th class="col-md-2">Supervisor</th>
-                        <!-- <th class="col-md-2"> Topic </th> -->
-                        <th class="col-md-1">Date of Joining</th>
-                        <th class="col-md-1">Date of Leaving</th>
-                        <th class="col-md-1">
-                          Duration (in years &amp; months)
-                        </th>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">1</td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_position1"
-                            name="r_exp_position[]"
-                            type="text"
-                            value="Numquam iusto eius."
-                            placeholder="Position"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_institute1"
-                            name="r_exp_institute[]"
-                            type="text"
-                            value="Minnesota"
-                            placeholder="Institute"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_supervisor1"
-                            name="r_exp_supervisor[]"
-                            type="text"
-                            value="Laborum omnis quo inventore quod tempora."
-                            placeholder="Supervisor"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <!--  <td class="col-md-2"> 
-                                          <input name="r_exp_topic1" name="r_exp_topic[]" type="text" value=""  placeholder="Topic" class="form-control input-md" required=""> 
-                                        </td> -->
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_doj1"
-                            name="r_exp_doj[]"
-                            type="text"
-                            value="Rerum sit unde sit a laboriosam."
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_dol1"
-                            name="r_exp_dol[]"
-                            type="text"
-                            value="Reprehenderit repellendus ad."
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_duration1"
-                            name="r_exp_duration[]"
-                            type="text"
-                            value="2024-08-15 23:36:01"
-                            placeholder="Duration"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">2</td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_position2"
-                            name="r_exp_position[]"
-                            type="text"
-                            value="Maiores fugiat quos."
-                            placeholder="Position"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_institute2"
-                            name="r_exp_institute[]"
-                            type="text"
-                            value="New Hampshire"
-                            placeholder="Institute"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_supervisor2"
-                            name="r_exp_supervisor[]"
-                            type="text"
-                            value="Magni libero harum molestias."
-                            placeholder="Supervisor"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <!--  <td class="col-md-2"> 
-                                          <input name="r_exp_topic2" name="r_exp_topic[]" type="text" value=""  placeholder="Topic" class="form-control input-md" required=""> 
-                                        </td> -->
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_doj2"
-                            name="r_exp_doj[]"
-                            type="text"
-                            value="Quaerat blanditiis asperiores."
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_dol2"
-                            name="r_exp_dol[]"
-                            type="text"
-                            value="Quod autem explicabo animi dicta optio nemo laboriosam facere."
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_duration2"
-                            name="r_exp_duration[]"
-                            type="text"
-                            value="2023-06-03 06:16:20"
-                            placeholder="Duration"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">3</td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_position3"
-                            name="r_exp_position[]"
-                            type="text"
-                            value="Libero nemo sed praesentium error."
-                            placeholder="Position"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_institute3"
-                            name="r_exp_institute[]"
-                            type="text"
-                            value="California"
-                            placeholder="Institute"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_supervisor3"
-                            name="r_exp_supervisor[]"
-                            type="text"
-                            value="Maiores perspiciatis reiciendis iste error dicta natus repellat."
-                            placeholder="Supervisor"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <!--  <td class="col-md-2"> 
-                                          <input name="r_exp_topic3" name="r_exp_topic[]" type="text" value=""  placeholder="Topic" class="form-control input-md" required=""> 
-                                        </td> -->
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_doj3"
-                            name="r_exp_doj[]"
-                            type="text"
-                            value="Labore consequatur dignissimos ullam velit odio eius voluptatem."
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_dol3"
-                            name="r_exp_dol[]"
-                            type="text"
-                            value="Blanditiis quia impedit commodi quod magni accusamus debitis voluptatem."
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_duration3"
-                            name="r_exp_duration[]"
-                            type="text"
-                            value="2024-07-20 17:27:01"
-                            placeholder="Duration"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">4</td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_position4"
-                            name="r_exp_position[]"
-                            type="text"
-                            value="Nesciunt magnam est vero libero veniam neque."
-                            placeholder="Position"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_institute4"
-                            name="r_exp_institute[]"
-                            type="text"
-                            value="Kentucky"
-                            placeholder="Institute"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="r_exp_supervisor4"
-                            name="r_exp_supervisor[]"
-                            type="text"
-                            value="Qui quos quos impedit alias."
-                            placeholder="Supervisor"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <!--  <td class="col-md-2"> 
-                                          <input name="r_exp_topic4" name="r_exp_topic[]" type="text" value=""  placeholder="Topic" class="form-control input-md" required=""> 
-                                        </td> -->
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_doj4"
-                            name="r_exp_doj[]"
-                            type="text"
-                            value="Molestiae amet qunameem qui quam."
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_dol4"
-                            name="r_exp_dol[]"
-                            type="text"
-                            value="Tenetur eum dolor eius iure tempore odio consequuntur."
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="r_exp_duration4"
-                            name="r_exp_duration[]"
-                            type="text"
-                            value="2024-03-19 06:15:58"
-                            placeholder="Duration"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="panel panel-success">
-                <div class="panel-heading">
-                  (E) Industrial Experience &nbsp;&nbsp;&nbsp;<button
-                    class="btn btn-sm btn-danger"
-                    name="add_more_ind_exp"
-                  >
-                    Add Details
-                  </button>
-                </div>
-                <div class="panel-body">
-                  <table class="table table-bordered">
-                    <tbody name="ind_exp">
-                      <tr height="30px">
-                        <th class="col-md-1">S. No.</th>
-                        <th class="col-md-2">Organization</th>
-                        <th class="col-md-3">Work Profile</th>
-                        <th class="col-md-2">Date of Joining</th>
-                        <th class="col-md-2">Date of Leaving</th>
-                        <th class="col-md-2">
-                          Duration (in years &amp; months)
-                        </th>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">1</td>
-                        <td class="col-md-2">
-                          <input
-                            name="org1"
-                            name="org[]"
-                            type="text"
-                            value="Commodi occaecati accusantium ut quibusdam nostrum magnam omnis."
-                            placeholder="Organization"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="work1"
-                            name="work[]"
-                            type="text"
-                            value="doloremque quibusdam nihil"
-                            placeholder="Nature of Work"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="ind_doj1"
-                            name="ind_doj[]"
-                            type="text"
-                            value="Natus aspernatur name error ipsam voluptas voluptas in."
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="ind_dol1"
-                            name="ind_dol[]"
-                            type="text"
-                            value="Quisquam odit iste illum."
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="period1"
-                            name="period[]"
-                            type="text"
-                            value="Assumenda eum nobis repellendus ab ipsa porro recusandae."
-                            placeholder="Period"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">2</td>
-                        <td class="col-md-2">
-                          <input
-                            name="org2"
-                            name="org[]"
-                            type="text"
-                            value="Molestias libero saepe ab consequuntur voluptas quis sunt."
-                            placeholder="Organization"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="work2"
-                            name="work[]"
-                            type="text"
-                            value="iusto excepturi odit"
-                            placeholder="Nature of Work"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="ind_doj2"
-                            name="ind_doj[]"
-                            type="text"
-                            value="Saepe quo doloribus ducimus."
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="ind_dol2"
-                            name="ind_dol[]"
-                            type="text"
-                            value="Eligendi amet ut quae eius numquam ut."
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="period2"
-                            name="period[]"
-                            type="text"
-                            value="Quos minima alias sint ex aspernatur libero inventore recusandae."
-                            placeholder="Period"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">3</td>
-                        <td class="col-md-2">
-                          <input
-                            name="org3"
-                            name="org[]"
-                            type="text"
-                            value="Libero sequi amet perspiciatis."
-                            placeholder="Organization"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="work3"
-                            name="work[]"
-                            type="text"
-                            value="unde perspiciatis provnameent"
-                            placeholder="Nature of Work"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="ind_doj3"
-                            name="ind_doj[]"
-                            type="text"
-                            value="name unde sunt nesciunt."
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="ind_dol3"
-                            name="ind_dol[]"
-                            type="text"
-                            value="Facere nulla accusantium."
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="period3"
-                            name="period[]"
-                            type="text"
-                            value="Totam mollitia doloribus facere rem alias animi repellendus ullam."
-                            placeholder="Period"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">4</td>
-                        <td class="col-md-2">
-                          <input
-                            name="org4"
-                            name="org[]"
-                            type="text"
-                            value="Reprehenderit dolores dolores deserunt sequi doloribus."
-                            placeholder="Organization"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="work4"
-                            name="work[]"
-                            type="text"
-                            value="esse ducimus nemo"
-                            placeholder="Nature of Work"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="ind_doj4"
-                            name="ind_doj[]"
-                            type="text"
-                            value="Quas repellendus exercitationem libero ab asperiores adipisci cupnameitate corporis."
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="ind_dol4"
-                            name="ind_dol[]"
-                            type="text"
-                            value="Beatae labore atque ipsam labore et."
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="period4"
-                            name="period[]"
-                            type="text"
-                            value="Quaerat quaerat fugit non iure."
-                            placeholder="Period"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-
-                      <tr height="60px">
-                        <td class="col-md-1">5</td>
-                        <td class="col-md-2">
-                          <input
-                            name="org5"
-                            name="org[]"
-                            type="text"
-                            value="Voluptatibus pariatur accusamus sapiente dolorum animi."
-                            placeholder="Organization"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="work5"
-                            name="work[]"
-                            type="text"
-                            value="minima reiciendis earum"
-                            placeholder="Nature of Work"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="ind_doj5"
-                            name="ind_doj[]"
-                            type="text"
-                            value="Numquam quisquam pariatur ullam."
-                            placeholder="Joining"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-1">
-                          <input
-                            name="ind_dol5"
-                            name="ind_dol[]"
-                            type="text"
-                            value="Sit placeat cupnameitate voluptatem aspernatur."
-                            placeholder="Leaving"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                        <td class="col-md-2">
-                          <input
-                            name="period5"
-                            name="period[]"
-                            type="text"
-                            value="Vel quo unde rerum ea iure."
-                            placeholder="Period"
-                            class="form-control input-md"
-                            required=""
-                          />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <h4 style="text-align: center; font-weight: bold; color: #6739bb">
-            4. Area(s) of Specialization and Current Area(s) of Research
-          </h4>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="panel panel-success">
-                <!-- <div class="panel-heading">9. Area(s) of Specialization *</div> -->
-                <div class="panel-body">
-                  <strong>Areas of specialization</strong>
-                  <textarea
-                    style="height: 150px"
-                    placeholder="Areas of specialization"
-                    class="form-control input-md"
-                    name="area_spl"
-                    maxlength="500"
-                    required=""
-                  >
-Nesciunt sunt quos impedit qunameem quas architecto.</textarea
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="panel panel-success">
-                <!-- <div class="panel-heading">10. Current Area(s) of Research *</div> -->
-                <div class="panel-body">
-                  <strong>Current Area of research</strong>
-                  <textarea
-                    style="height: 150px"
-                    placeholder="Current Area of research"
-                    class="form-control input-md"
-                    name="area_rese"
-                    maxlength="500"
-                    required=""
-                  >
-3134 Genesis Spur</textarea
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <div class="col-md-1">
-              <a
-                href="/page2"
-                class="btn btn-primary pull-left"
-                previewlistener="true"
-                ><i class="glyphicon glyphicon-fast-backward"></i
-              ></a>
-            </div>
-
-            <div class="row mt-3">
-              <div class="col-md-12 text-end">
-                <button type="submit" class="btn btn-primary submit">
-                  Save and Next
+              
+            </section>
+    
+            <section style="border: 1px solid #d6e9c6; margin-top: 10px">
+              <legend>
+                (B) Employment History (After PhD, Starting with Latest)
+                <button
+                  id="add_more_education"
+                  style="
+                    background-color: red;
+                    color: white;
+                    font-size: 12px;
+                    font-family: 'Oswald', sans-serif;
+                    border: transparent;
+                  "
+                >
+                  Add More
                 </button>
+              </legend>
+              <div class="panel-body">
+                <table class="dataTable">
+                  <thead>
+                    <tr class="headings">
+                      <th class="p3-t1-c1">S.No.</th>
+                      <th class="p3-t1-c2">Position</th>
+                      <th class="p3-t1-c3">Organization/Institution</th>
+                      <th class="p3-t1-c4">Date of Joining</th>
+                      <th class="p3-t1-c5">Date of Leaving</th>
+                      <th class="p3-t1-c6">Duration (in years & months)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="p3-t1-c1"><p>1</p></td>
+                      <td class="p3-t1-c2">
+                        <input
+                          type="text"
+                          id="position1"
+                          name="employement_history"
+                        />
+                      </td>
+                      <td class="p3-t1-c3">
+                        <input
+                          type="text"
+                          id="organization1"
+                          name="employement_history"
+                        />
+                      </td>
+                      <td class="p3-t1-c4">
+                        <input
+                          type="date"
+                          id="join_date1"
+                          name="employement_history"
+                        />
+                      </td>
+                      <td class="p3-t1-c5">
+                        <input
+                          type="date"
+                          id="leave_date1"
+                          name="employement_history"
+                          placeholder="Continue if working"
+                        />
+                      </td>
+                      <td class="p3-t1-c6">
+                        <input
+                          type="text"
+                          id="duration1"
+                          name="employement_history"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p3-t1-c1"><p>2</p></td>
+                      <td class="p3-t1-c2">
+                        <input
+                          type="text"
+                          id="position2"
+                          name="employement_history"
+                        />
+                      </td>
+                      <td class="p3-t1-c3">
+                        <input
+                          type="text"
+                          id="organization2"
+                          name="employement_history"
+                        />
+                      </td>
+                      <td class="p3-t1-c4">
+                        <input
+                          type="date"
+                          id="join_date2"
+                          name="employement_history"
+                        />
+                      </td>
+                      <td class="p3-t1-c5">
+                        <input
+                          type="date"
+                          id="leave_date2"
+                          name="employement_history"
+                          placeholder="Continue if working"
+                        />
+                      </td>
+                      <td class="p3-t1-c6">
+                        <input
+                          type="text"
+                          id="duration2"
+                          name="employement_history-"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+    
+            <section style="border: 1px solid #d6e9c6; margin-top: 10px">
+              <legend>
+                (C) Teaching Experience (After PhD)
+                <button
+                  id="add_more_education"
+                  style="
+                    background-color: red;
+                    color: white;
+                    font-size: 12px;
+                    font-family: 'Oswald', sans-serif;
+                    border: transparent;
+                  "
+                >
+                  Add More
+                </button>
+              </legend>
+              <div class="panel-body">
+                <table id="teaching_experience_table" class="dataTable">
+                  <thead>
+                    <tr>
+                      <th class="p3-t2-c1">S.No.</th>
+                      <th class="p3-t2-c2">Position</th>
+                      <th class="p3-t2-c3">Employer</th>
+                      <th class="p3-t2-c4">Course Taught</th>
+                      <th class="p3-t2-c5">UG/PG</th>
+                      <th class="p3-t2-c6">No. of Students</th>
+                      <th class="p3-t2-c7">Date of Joining the Institute</th>
+                      <th class="p3-t2-c8">Date of Leaving the Institute</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="p3-t2-c1"><p>1</p></td>
+                      <td class="p3-t2-c2">
+                        <input
+                          type="text"
+                          id="teaching_position1"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t2-c3">
+                        <input
+                          type="text"
+                          id="employer1"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t2-c4">
+                        <input
+                          type="text"
+                          id="course_taught1"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t2-c5">
+                        <input type="text" id="ug_pg1" name="ug_pg1" />
+                      </td>
+                      <td class="p3-t2-c6">
+                        <input
+                          type="text"
+                          id="no_of_students1"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t2-c7">
+                        <input
+                          type="date"
+                          id="teaching_join_date1"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t2-c8">
+                        <input
+                          type="date"
+                          id="teaching_leave_date1"
+                          name="teaching_experience"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p3-t2-c1"><p>2</p></td>
+                      <td class="p3-t2-c2">
+                        <input
+                          type="text"
+                          id="teaching_position2"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t2-c3">
+                        <input
+                          type="text"
+                          id="employer2"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t2-c4">
+                        <input
+                          type="text"
+                          id="course_taught2"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t2-c5">
+                        <input type="text" id="ug_pg2" name="teaching_experience" />
+                      </td>
+                      <td class="p3-t2-c6">
+                        <input
+                          type="text"
+                          id="no_of_students2"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t2-c7">
+                        <input
+                          type="date"
+                          id="teaching_join_date2"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t2-c8">
+                        <input
+                          type="date"
+                          id="teaching_leave_date2"
+                          name="teaching_experience"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p3-t1-c1"><p>3</p></td>
+                      <td class="p3-t1-c2">
+                        <input
+                          type="text"
+                          id="teaching_position3"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t1-c3">
+                        <input
+                          type="text"
+                          id="employer3"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t1-c4">
+                        <input
+                          type="text"
+                          id="course_taught3"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t1-c5">
+                        <input type="text" id="ug_pg3" name="teaching_experience" />
+                      </td>
+                      <td class="p3-t1-c6">
+                        <input
+                          type="text"
+                          id="no_of_students3"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t1-c7">
+                        <input
+                          type="date"
+                          id="teaching_join_date3"
+                          name="teaching_experience"
+                        />
+                      </td>
+                      <td class="p3-t1-c8">
+                        <input
+                          type="date"
+                          id="teaching_leave_date3"
+                          name="teaching_experience"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+    
+            <section style="border: 1px solid #d6e9c6; margin-top: 10px">
+              <legend>
+                (D) Research Experience (Post PhD, including Post Doctoral)
+                <button
+                  id="add_more_education"
+                  style="
+                    background-color: red;
+                    color: white;
+                    font-size: 12px;
+                    font-family: 'Oswald', sans-serif;
+                    border: transparent;
+                  "
+                >
+                  Add More
+                </button>
+              </legend>
+              <div class="panel-body">
+                <table id="research_experience_table" class="dataTable">
+                  <thead>
+                    <tr class="headings">
+                      <th class="p3-t4-c1">S.No.</th>
+                      <th class="p3-t4-c2">Position</th>
+                      <th class="p3-t4-c3">Institute</th>
+                      <th class="p3-t4-c4">Supervisor</th>
+                      <th class="p3-t4-c5">Date of Joining</th>
+                      <th class="p3-t4-c6">Date of Leaving</th>
+                      <th class="p3-t4-c7">Duration (in years & months)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="p3-t4-c1"><p>1</p></td>
+                      <td class="p3-t4-c2">
+                        <input
+                          type="text"
+                          id="research_position1"
+                          name="research_position1"
+                        />
+                      </td>
+                      <td class="p3-t4-c3">
+                        <input
+                          type="text"
+                          id="institute1"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c4">
+                        <input
+                          type="text"
+                          id="supervisor1"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c5">
+                        <input
+                          type="date"
+                          id="research_join_date1"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c6">
+                        <input
+                          type="date"
+                          id="research_leave_date1"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c7">
+                        <input
+                          type="text"
+                          id="research_duration1"
+                          name="research_experience"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p3-t4-c1"><p>2</p></td>
+                      <td class="p3-t4-c2">
+                        <input
+                          type="text"
+                          id="research_position2"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c3">
+                        <input
+                          type="text"
+                          id="institute2"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c4">
+                        <input
+                          type="text"
+                          id="supervisor2"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c5">
+                        <input
+                          type="date"
+                          id="research_join_date2"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c6">
+                        <input
+                          type="date"
+                          id="research_leave_date2"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c7">
+                        <input
+                          type="text"
+                          id="research_duration2"
+                          name="research_experience"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p3-t4-c1"><p>3</p></td>
+                      <td class="p3-t4-c2">
+                        <input
+                          type="text"
+                          id="research_position3"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c3">
+                        <input
+                          type="text"
+                          id="institute3"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c4">
+                        <input
+                          type="text"
+                          id="supervisor3"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c5">
+                        <input
+                          type="date"
+                          id="research_join_date3"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c6">
+                        <input
+                          type="date"
+                          id="research_leave_date3"
+                          name="research_experience"
+                        />
+                      </td>
+                      <td class="p3-t4-c7">
+                        <input
+                          type="text"
+                          id="research_duration3"
+                          name="research_experience"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+    
+            <section style="border: 1px solid #d6e9c6; margin-top: 10px">
+              <legend>
+                (E) Industrial Experience
+                <button
+                  id="add_more_education"
+                  style="
+                    background-color: red;
+                    color: white;
+                    font-size: 12px;
+                    font-family: 'Oswald', sans-serif;
+                    border: transparent;
+                  "
+                >
+                  Add More
+                </button>
+              </legend>
+              <div class="panel-body">
+                <table id="industrial_experience_table" class="dataTable">
+                  <thead>
+                    <tr class="headings">
+                      <th class="p3-t5-c1">S.No.</th>
+                      <th class="p3-t5-c2">Organisation</th>
+                      <th class="p3-t5-c3">Work Profile</th>
+                      <th class="p3-t5-c4">Date of Joining</th>
+                      <th class="p3-t5-c5">Date of Leaving</th>
+                      <th class="p3-t5-c6">Duration (in years & months)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="p3-t5-c1"><p>1</p></td>
+                      <td class="p3-t5-c2">
+                        <input
+                          type="text"
+                          id="organisation1"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c3">
+                        <input
+                          type="text"
+                          id="work_profile1"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c4">
+                        <input
+                          type="date"
+                          id="joining_date1"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c5">
+                        <input
+                          type="date"
+                          id="leaving_date1"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c6">
+                        <input
+                          type="text"
+                          id="industrial_duration1"
+                          name="industrial_experience"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p3-t5-c1"><p>2</p></td>
+                      <td class="p3-t5-c2">
+                        <input
+                          type="text"
+                          id="organisation2"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c3">
+                        <input
+                          type="text"
+                          id="work_profile2"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c4">
+                        <input
+                          type="date"
+                          id="joining_date2"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c5">
+                        <input
+                          type="date"
+                          id="leaving_date2"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c6">
+                        <input
+                          type="text"
+                          id="industrial_duration2"
+                          name="industrial_experience"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p3-t5-c1"><p>3</p></td>
+                      <td class="p3-t5-c2">
+                        <input
+                          type="text"
+                          id="organisation3"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c3">
+                        <input
+                          type="text"
+                          id="work_profile3"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c4">
+                        <input
+                          type="date"
+                          id="joining_date3"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c5">
+                        <input
+                          type="date"
+                          id="leaving_date3"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c6">
+                        <input
+                          type="text"
+                          id="industrial_duration3"
+                          name="industrial_experience"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p3-t5-c1"><p>4</p></td>
+                      <td class="p3-t5-c2">
+                        <input
+                          type="text"
+                          id="organisation4"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c3">
+                        <input
+                          type="text"
+                          id="work_profile4"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c4">
+                        <input
+                          type="date"
+                          id="joining_date4"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c5">
+                        <input
+                          type="date"
+                          id="leaving_date4"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c6">
+                        <input
+                          type="text"
+                          id="industrial_duration4"
+                          name="industrial_experience"
+                        />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p3-t5-c1"><p>5</p></td>
+                      <td class="p3-t5-c2">
+                        <input
+                          type="text"
+                          id="organisation5"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c3">
+                        <input
+                          type="text"
+                          id="work_profile5"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c4">
+                        <input
+                          type="date"
+                          id="joining_date5"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c5">
+                        <input
+                          type="date"
+                          id="leaving_date5"
+                          name="industrial_experience"
+                        />
+                      </td>
+                      <td class="p3-t5-c6">
+                        <input
+                          type="text"
+                          id="industrial_duration5"
+                          name="industrial_experience"
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <br />
+            <h4 style="margin: 10px">
+              4. Area(s) of Specialization and Current Area(s) of Research
+            </h4>
+            <div
+              class="bottomsection"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+              "
+            >
+              <div class="panel-body" style="width: 50%; margin: 10px">
+                <div
+                  class="specialization-box"
+                  style="background-color: white; padding: 15px; width: 90%"
+                >
+                  <h3>Areas of Specialization</h3>
+                  <textarea
+                    id="areas-of-specialization"
+                    name="area_of_speacialization"
+                    style="height: 150px; max-width: 100%; min-width: 100%"
+                    maxlength="500"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="panel-body" style="width: 50%; margin: 10px">
+                <div
+                  class="research-area-box"
+                  style="background-color: white; padding: 15px; width: 90%"
+                >
+                  <h3>Current Area of Research</h3>
+                  <textarea
+                    id="current-area-of-research"
+                    name="current_area_of_research"
+                    style="
+                      height: 150px;
+                      width: 100%;
+                      max-width: 100%;
+                      min-width: 100%;
+                    "
+                    maxlength="500"
+                  ></textarea>
+                </div>
               </div>
             </div>
+            
           </div>
-        </form>
-      </div>
+        
+        
+        <div class="form-group">
+          <div class="col-md-1">
+            <a
+              href="/form"
+              class="btn btn-primary pull-left"
+              previewlistener="true"
+              ><i class="glyphicon glyphicon-fast-backward"></i
+            ></a>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-12 text-end">
+              <button type="submit" class="btn btn-primary submit" >
+                Save and Next
+              </button>
+            </div>
+          </div>
+      </form>
     </div>
+    <!-- </div> -->
     <!-- Bootstrap Scripts (latest version) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>

@@ -42,7 +42,7 @@ function fetchDataFromDatabase(session, form_number, callback) {
       callback({});
     } else {
       if (data.length > 0) {
-        console.log("Data fetched from database:", data);
+        // console.log("Data fetched from database:", data);
         callback(data[0]); // Assuming only one row is expected
       } else {
         console.log("No data found in database.");
@@ -63,8 +63,8 @@ app.get("/form", (req, res) => {
   });
 });
 
-app.get("/page2", function (req, res) {
-  //res.render("form2", { title: "Express", session: req.session }); // Renders the form.ejs view
+app.get("/page2", (req, res) => {
+  // Fetch data from the database
   fetchDataFromDatabase(req.session, 2, (data) => {
     res.render("form2", {
       title: "Express",
@@ -73,7 +73,6 @@ app.get("/page2", function (req, res) {
     });
   });
 });
-
 app.get("/page3", function (req, res) {
   //res.render("form3", { title: "Express", session: req.session }); // Renders the form.ejs view
   fetchDataFromDatabase(req.session, 3, (data) => {
@@ -122,6 +121,17 @@ app.get("/page7", function (req, res) {
   // res.render("form7", { title: "Express", session: req.session }); // Renders the form.ejs view
   fetchDataFromDatabase(req.session, 7, (data) => {
     res.render("form7", {
+      title: "Express",
+      session: req.session,
+      formData: data,
+    });
+  });
+});
+
+app.get("/page8", function (req, res) {
+  // res.render("form7", { title: "Express", session: req.session }); // Renders the form.ejs view
+  fetchDataFromDatabase(req.session, 8, (data) => {
+    res.render("form8", {
       title: "Express",
       session: req.session,
       formData: data,

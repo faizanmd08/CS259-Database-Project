@@ -3,6 +3,7 @@ var router = express.Router();
 
 var database = require("../database.js");
 const session = require("express-session");
+const { jsPDF } = require("jspdf");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -213,66 +214,67 @@ router.post("/page2", function (request, response, next) {
 });
 
 router.post("/page3", function (request, response, next) {
-  // const id = request.session.user_id;
-  // const query = `INSERT INTO page3 (user_id, present_emp_position, present_emp_org, present_emp_status, present_emp_date_of_joining, present_emp_date_of_leaving, present_emp_duration, employment_history, experience_3yrs, teaching_experience, research_experience, industrial_experience, area_of_speacialization, current_area_of_research)
-  // VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+  const id = request.session.user_id;
+  console.log("user: " + id);
+  const query = `INSERT INTO page3 (user_id, present_emp_position, present_emp_org, present_emp_status, present_emp_date_of_joining, present_emp_date_of_leaving, present_emp_duration, employment_history, experience_3yrs, teaching_experience, research_experience, industrial_experience, area_of_speacialization, current_area_of_research)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
-  // const formData = [
-  //   id,
-  //   request.body.present_emp_position,
-  //   request.body.present_emp_org,
-  //   request.body.present_emp_status,
-  //   request.body.present_emp_date_of_joining,
-  //   request.body.present_emp_date_of_leaving,
-  //   request.body.present_emp_duration,
-  //   JSON.stringify(request.body.employment_history),
-  //   request.body.experience_3yrs,
-  //   JSON.stringify(request.body.teaching_experience),
-  //   JSON.stringify(request.body.research_experience),
-  //   JSON.stringify(request.body.industrial_experience),
-  //   request.body.area_of_speacialization,
-  //   request.body.current_area_of_research,
-  // ];
+  const formData = [
+    id,
+    request.body.present_emp_position,
+    request.body.present_emp_org,
+    request.body.present_emp_status,
+    request.body.present_emp_date_of_joining,
+    request.body.present_emp_date_of_leaving,
+    request.body.present_emp_duration,
+    JSON.stringify(request.body.employment_history),
+    request.body.experience_3yrs,
+    JSON.stringify(request.body.teaching_experience),
+    JSON.stringify(request.body.research_experience),
+    JSON.stringify(request.body.industrial_experience),
+    request.body.area_of_speacialization,
+    request.body.current_area_of_research,
+  ];
 
-  // const selectQuery = `SELECT * FROM page3 WHERE user_id = ?`;
+  const selectQuery = `SELECT * FROM page3 WHERE user_id = ?`;
 
-  // database.query(selectQuery, id, function (error, data) {
-  //   if (error) {
-  //     console.error("Error selecting data:", error);
-  //     request.session.error = error;
-  //     // Handle error appropriately
-  //   } else {
-  //     if (data.length > 0) {
-  //       const deleteQuery = `DELETE FROM page3 WHERE user_id = ?`;
-  //       database.query(deleteQuery, id, function (error, result) {
-  //         if (error) {
-  //           console.error("Error deleting data:", error);
-  //           request.session.error = error;
-  //           // Handle error appropriately
-  //         } else {
-  //           console.log("Data deleted successfully");
-  //         }
-  //       });
-  //     }
+  database.query(selectQuery, id, function (error, data) {
+    if (error) {
+      console.error("Error selecting data:", error);
+      request.session.error = error;
+      // Handle error appropriately
+    } else {
+      if (data.length > 0) {
+        const deleteQuery = `DELETE FROM page3 WHERE user_id = ?`;
+        database.query(deleteQuery, id, function (error, result) {
+          if (error) {
+            console.error("Error deleting data:", error);
+            request.session.error = error;
+            // Handle error appropriately
+          } else {
+            console.log("Data deleted successfully");
+          }
+        });
+      }
 
-  //     database.query(query, formData, function (error, result) {
-  //       if (error) {
-  //         console.error("Error inserting data:", error);
-  //         request.session.error = error;
-  //         // Handle error appropriately
-  //       } else {
-  //         console.log("Data inserted successfully");
-  //         // Handle successful insertion
-  //         response.redirect("/page4");
-  //       }
-  //     });
-  //   }
-  // });
-  response.redirect("/page4");
+      database.query(query, formData, function (error, result) {
+        if (error) {
+          console.error("Error inserting data:", error);
+          request.session.error = error;
+          // Handle error appropriately
+        } else {
+          console.log("Data inserted successfully");
+          // Handle successful insertion
+          response.redirect("/page4");
+        }
+      });
+    }
+  });
 });
 
 router.post("/page4", function (request, response, next) {
   const id = request.session.user_id;
+  console.log("page 4 added");
   const query = `INSERT INTO page4 (user_id, international_journal_papers, national_journal_papers, international_conference_papers, national_conference_papers, patents, books, book_chapters, publications, list_of_patents, list_of_books, list_of_book_chapters, google_scholar_link) 
   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
@@ -372,7 +374,7 @@ router.post("/page5", function (request, response, next) {
         } else {
           console.log("Data inserted successfully");
           // Handle successful insertion
-          response.redirect("/finalPage");
+          response.redirect("/page6");
         }
       });
     }
@@ -421,7 +423,7 @@ router.post("/page6", function (request, response, next) {
         } else {
           console.log("Data inserted successfully");
           // Handle successful insertion
-          response.redirect("/finalPage");
+          response.redirect("/page7");
         }
       });
     }
@@ -430,6 +432,7 @@ router.post("/page6", function (request, response, next) {
 
 router.post("/page7", function (request, response, next) {
   const id = request.session.user_id;
+  console.log(request.body);
   const query = `INSERT INTO page7 (user_id, research_contribution, teaching_contributuion, relavent_information, professional_service, journal_publications, conference_publications, new_tablecol) 
   VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
 
@@ -473,7 +476,7 @@ router.post("/page7", function (request, response, next) {
         } else {
           console.log("Data inserted successfully");
           // Handle successful insertion
-          response.redirect("/finalPage");
+          response.redirect("/page8");
         }
       });
     }
@@ -538,9 +541,70 @@ router.post("/page8", function (request, response, next) {
 });
 
 router.post("/declaration", function (request, response, next) {
-  console.log(request.body);
+  const id = request.session.user_id;
 
-  response.redirect("/confir_page");
+  // Create a new jsPDF instance
+  const pdf = new jsPDF();
+
+  // Fetch data from all the required tables
+  const tables = [
+    "page1",
+    "page2",
+    "page3",
+    "page4",
+    "page5",
+    "page6",
+    "page7",
+    "page8",
+  ];
+  const promises = tables.map((table) => {
+    return new Promise((resolve, reject) => {
+      const query = `SELECT * FROM ${table} WHERE user_id = ?`;
+      database.query(query, id, function (error, data) {
+        if (error) {
+          console.error(`Error fetching data from ${table}:`, error);
+          reject(error);
+        } else {
+          resolve({ table, data });
+        }
+      });
+    });
+  });
+
+  // Wait for all promises to resolve
+  Promise.all(promises)
+    .then((results) => {
+      // Add data from each table to a new page
+      results.forEach((result, index) => {
+        const { table, data } = result;
+        if (index !== 0) {
+          pdf.addPage(); // Add a new page for each table except the first one
+        }
+        pdf.text(`Table ${index + 1} (${table}) Data:`, 10, 10);
+        let yOffset = 20;
+        // Format and append data to pdf
+        data.forEach((row) => {
+          Object.entries(row).forEach(([key, value]) => {
+            const text = `${key}: ${value}`;
+            pdf.text(text, 10, yOffset);
+            yOffset += 7; // Adjust line spacing
+          });
+          yOffset += 5; // Add extra space between rows
+        });
+      });
+
+      // Save or download the PDF
+      pdf.save("combined_data.pdf");
+
+      // Redirect or send the PDF as a response
+      response.redirect("/");
+    })
+    .catch((error) => {
+      // Handle error appropriately
+      console.error("Error fetching data:", error);
+      // Redirect or send an error response
+      response.status(500).send("Internal Server Error");
+    });
 });
 
 router.post("/confir_page", function (request, response, next) {

@@ -20,45 +20,7 @@
     <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
     <link href="/stylesheets/style.css" rel="stylesheet" />
     <title>Faculty Login</title>
-    <script>
-      function onSubmit() {
-        // Collect data from table inputs
-        const tableRows = document.querySelectorAll('tbody tr');
-        const tableData = [];
     
-        tableRows.forEach(row => {
-          const rowData = {};
-          const rowInputs = row.querySelectorAll('input');
-          rowInputs.forEach(input => {
-            rowData[input.name] = input.value;
-          });
-          tableData.push(rowData);
-        });
-    
-        // Collect data from other inputs
-        
-        // Add table row data to form data
-        formData.push({ tableData: tableData });
-    
-        // Send data to server as JSON
-        fetch('/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(formData)
-        }).then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.text();
-        }).then(data => {
-          console.log(data);
-        }).catch(error => {
-          console.error('Error:', error);
-        });
-      }
-    </script>
     
   </head>
   <body>
@@ -73,6 +35,7 @@
       </div>
     </nav>
 
+    <%= console.log(formData) %>
     <div class="col-xs-12 col-sm-12 col-md-12 well">
       <form class="form-horizontal" action="/page2" method="post">
         <legend>
@@ -116,7 +79,8 @@
                       <label for="university" class="form-label address-heading"
                         >University/Institute</label
                       >
-                      <input type="text" class="form-control" name="university" />
+                      <input type="text" class="form-control" name="PhD_university" value="<%= formData.PhD_university || '' %>"/>
+                      
                     </div>
                     <div class="mb-3">
                       <label
@@ -127,7 +91,8 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="phdSupervisor"
+                        name="PhD_supervisor"
+                        value="<%= formData.PhD_supervisor || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -137,9 +102,11 @@
                         >Date of Successful Thesis Defence</label
                       >
                       <input
-                        type="text"
+                        type="date"
                         class="form-control"
-                        name="thesisDefenceDate"
+                        name="PhD_thesis_defence"
+                        value="<%= formData.PhD_thesis_defence || '' %>"
+                        
                       />
                     </div>
                   </div>
@@ -149,25 +116,26 @@
                       <label for="department" class="form-label address-heading"
                         >Department</label
                       >
-                      <input type="text" class="form-control" name="department" />
+                      <input type="text" class="form-control" name="PhD_Department" value="<%= formData.PhD_Department || '' %>"/>
                     </div>
                     <div class="mb-3">
                       <label
-                        for="joiningYear"
+                        for="phd_joiningYear"
                         class="form-label address-heading"
                         >Year of Joining</label
                       >
                       <input
                         type="text"
                         class="form-control"
-                        name="joiningYear"
+                        name="PhD_year_of_joining"
+                        value="<%= formData.PhD_year_of_joining || '' %>"
                       />
                     </div>
                     <div class="mb-3">
                       <label for="awardDate" class="form-label address-heading"
                         >Date of Award</label
                       >
-                      <input type="text" class="form-control" name="awardDate" />
+                      <input type="date" class="form-control" name="PhD_Award_date" value="<%= formData.PhD_Award_date || '' %>"/>
                     </div>
                   </div>
                 </div>
@@ -182,8 +150,9 @@
                     <input
                       type="text"
                       class="form-control"
-                      name="phdThesisTitle"
+                      name="PhD_thesis_title"
                       placeholder="Title of PhD Thesis"
+                      value="<%= formData.PhD_thesis_title || '' %>"
                     />
                   </div>
                 </div>
@@ -213,8 +182,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="degreeCertificate"
+                        name="MTech_degree"
                         placeholder="Degree/Certificate"
+                        value="<%= formData.MTech_degree || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -226,8 +196,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="branchStream"
+                        name="MTech_branch"
                         placeholder="Branch/Stream"
+                        value="<%= formData.MTech_branch || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -237,10 +208,11 @@
                         >Year of Completion</label
                       >
                       <input
-                        type="text"
+                        type="year"
                         class="form-control"
-                        name="completionYear"
+                        name="MTech_year_of_completion"
                         placeholder="Year of Completion"
+                        value="<%= formData.MTech_year_of_completion || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -250,10 +222,11 @@
                         >Percentage/CGPA</label
                       >
                       <input
-                        type="text"
+                        type="number"
                         class="form-control"
-                        name="percentageCGPA"
+                        name="MTech_CGPA"
                         placeholder="Percentage/CGPA"
+                        value="<%= formData.MTech_CGPA || '' %>"
                       />
                     </div>
                   </div>
@@ -268,8 +241,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="universityInstitute"
+                        name="MTech_university"
                         placeholder="University/Institute"
+                        value="<%= formData.MTech_university || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -279,10 +253,11 @@
                         >Year of Joining</label
                       >
                       <input
-                        type="text"
+                        type="year"
                         class="form-control"
-                        name="joiningYear"
+                        name="MTech_year_of_joining"
                         placeholder="Year of Joining"
+                        value="<%= formData.MTech_year_of_joining || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -292,10 +267,11 @@
                         >Duration (in years)</label
                       >
                       <input
-                        type="text"
+                        type="number"
                         class="form-control"
-                        name="durationYears"
+                        name="MTech_duration"
                         placeholder="Duration (in years)"
+                        value="<%= formData.MTech_duration || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -307,8 +283,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="divisionClass"
+                        name="MTech_division"
                         placeholder="Division/Class"
+                        value="<%= formData.MTech_division || '' %>"
                       />
                     </div>
                   </div>
@@ -337,8 +314,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="degreeCertificate"
+                        name="BTech_degree"
                         placeholder="Degree/Certificate"
+                        value="<%= formData.BTech_degree || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -350,8 +328,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="branchStream"
+                        name="BTech_branch"
                         placeholder="Branch/Stream"
+                        value="<%= formData.BTech_branch || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -361,10 +340,11 @@
                         >Year of Completion</label
                       >
                       <input
-                        type="text"
+                        type="year"
                         class="form-control"
-                        name="completionYear"
+                        name="BTech_year_of_completion"
                         placeholder="Year of Completion"
+                        value="<%= formData.BTech_year_of_completion || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -374,10 +354,11 @@
                         >Percentage/CGPA</label
                       >
                       <input
-                        type="text"
+                        type="number"
                         class="form-control"
-                        name="percentageCGPA"
+                        name="BTech_cgpa"
                         placeholder="Percentage/CGPA"
+                        value="<%= formData.BTech_cgpa || '' %>"
                       />
                     </div>
                   </div>
@@ -392,8 +373,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="universityInstitute"
+                        name="BTech_university"
                         placeholder="University/Institute"
+                        value="<%= formData.BTech_university || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -405,8 +387,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="joiningYear"
+                        name="BTech_year_of_joining"
                         placeholder="Year of Joining"
+                        value="<%= formData.BTech_year_of_joining || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -416,10 +399,11 @@
                         >Duration (in years)</label
                       >
                       <input
-                        type="text"
+                        type="number"
                         class="form-control"
-                        name="durationYears"
+                        name="BTech_duration"
                         placeholder="Duration (in years)"
+                        value="<%= formData.BTech_duration || '' %>"
                       />
                     </div>
                     <div class="mb-3">
@@ -431,8 +415,9 @@
                       <input
                         type="text"
                         class="form-control"
-                        name="divisionClass"
+                        name="BTech_division"
                         placeholder="Division/Class"
+                        value="<%= formData.BTech_division || '' %>"
                       />
                     </div>
                   </div>
@@ -468,53 +453,58 @@
                           class="form-control input-md"
                           readonly=""
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
 
                       <td class="col-md-2">
                         <input
-                          
+                         name="12th"
                           type="text"
                           value="Non nisi consectetur."
                           placeholder="School"
                           class="form-control input-md"
                           maxlength="80"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
                       <td class="col-md-2">
                         <input
-                          
+                        name="12th"
                           type="text"
                           value="4eplL"
                           placeholder="Passing Year"
                           class="form-control input-md"
                           maxlength="5"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
 
                       <td class="col-md-2">
                         <input
-                          
+                        name="12th"
                           type="text"
                           value="657 V"
                           placeholder="Percentage/Grade"
                           class="form-control input-md"
                           maxlength="5"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
 
                       <td class="col-md-2">
                         <input
-                          
+                        name="12th"
                           type="text"
                           value="Harum"
                           placeholder="Percentage/Grade"
                           class="form-control input-md"
                           maxlength="5"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
                     </tr>
@@ -533,48 +523,52 @@
 
                       <td class="col-md-2">
                         <input
-                          
+                        name="10th"
                           type="text"
                           value="Vitae dolor quos minima doloribus cumque."
                           placeholder="School"
                           class="form-control input-md"
                           maxlength="80"
                           required=""
+                          value="<%= formData.'10th'[0] || '' %>"
                         />
                       </td>
                       <td class="col-md-2">
                         <input
-                          
+                        name="10th"
                           type="text"
                           value="ZAImK"
                           placeholder="Passing Year"
                           class="form-control input-md"
                           maxlength="5"
                           required=""
+                          value="<%= formData.'10th'[1] || '' %>"
                         />
                       </td>
 
                       <td class="col-md-2">
                         <input
-                          
+                        name="10th"
                           type="text"
                           value="818 T"
                           placeholder="Percentage/Grade"
                           class="form-control input-md"
                           maxlength="5"
                           required=""
+                          value="<%= formData.'10th'[2] || '' %>"
                         />
                       </td>
 
                       <td class="col-md-2">
                         <input
-                          
+                        name="10th"
                           type="text"
                           value="Tempo"
                           placeholder="Percentage/Grade"
                           class="form-control input-md"
                           maxlength="5"
                           required=""
+                          value="<%= formData.'10th'[3] || '' %>"
                         />
                       </td>
                     </tr>
@@ -612,833 +606,111 @@
                       <td class="col-md-2">
                         <input
                           name="add_degree1"
-                          name="add_degree[]"
+                          
                           type="text"
                           value="966 Parker"
                           placeholder="Degree"
                           class="form-control input-md"
                           maxlength="10"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
 
                       <td class="col-md-2">
                         <input
-                          name="add_college1"
-                          name="add_college[]"
+                        name="add_degree1"
                           type="text"
                           value="1354 Reichert Parkway"
                           placeholder="College"
                           class="form-control input-md"
                           maxlength="80"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
 
                       <td class="col-md-2">
                         <input
-                          name="add_subjects1"
-                          name="add_subjects[]"
+                        name="add_degree1"
                           type="text"
                           value="3085 Ethelyn Stravenue"
                           placeholder="Subjects"
                           class="form-control input-md"
                           maxlength="80"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
 
                       <td class="col-md-2">
                         <input
-                          name="add_yoj1"
-                          name="add_yoj[]"
+                        name="add_degree1"
                           type="text"
                           value="198 S"
                           placeholder="Year of Joining"
                           class="form-control input-md"
                           maxlength="5"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
                       <td class="col-md-2">
                         <input
-                          name="add_yog1"
-                          name="add_yog[]"
+                        name="add_degree1"
                           type="text"
                           value="356 T"
                           placeholder="Year of Graduation"
                           class="form-control input-md"
                           maxlength="5"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
                       <td class="col-md-2">
                         <input
-                          name="add_duration1"
-                          name="add_duration[]"
+                        name="add_degree1"
                           type="text"
                           value="2075"
                           placeholder="Duration"
                           class="form-control input-md"
                           maxlength="4"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
 
                       <td class="col-md-2">
                         <input
-                          name="add_perce1"
-                          name="add_perce[]"
+                        name="add_degree1"
                           type="text"
                           value="5108 "
                           placeholder="Percentage"
                           class="form-control input-md"
                           maxlength="5"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
 
                       <td class="col-md-2">
                         <input
-                          name="add_rank1"
-                          name="add_rank[]"
+                        name="add_degree1"
                           type="text"
                           value="Imped"
                           placeholder="Percentage"
                           class="form-control input-md"
                           maxlength="5"
                           required=""
+                          value="<%= '' || '' %>"
                         />
                       </td>
                     </tr>
 
-                    <tr height="60px">
-                      <td class="col-md-2">
-                        <input
-                          name="add_degree2"
-                          name="add_degree[]"
-                          type="text"
-                          value="25064 Feli"
-                          placeholder="Degree"
-                          class="form-control input-md"
-                          maxlength="10"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_college2"
-                          name="add_college[]"
-                          type="text"
-                          value="626 Otho Freeway"
-                          placeholder="College"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_subjects2"
-                          name="add_subjects[]"
-                          type="text"
-                          value="8482 Rogahn Corners"
-                          placeholder="Subjects"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_yoj2"
-                          name="add_yoj[]"
-                          type="text"
-                          value="5909 "
-                          placeholder="Year of Joining"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_yog2"
-                          name="add_yog[]"
-                          type="text"
-                          value="1116 "
-                          placeholder="Year of Graduation"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_duration2"
-                          name="add_duration[]"
-                          type="text"
-                          value="7948"
-                          placeholder="Duration"
-                          class="form-control input-md"
-                          maxlength="4"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_perce2"
-                          name="add_perce[]"
-                          type="text"
-                          value="2578 "
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_rank2"
-                          name="add_rank[]"
-                          type="text"
-                          value="Adipi"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                    </tr>
-
-                    <tr height="60px">
-                      <td class="col-md-2">
-                        <input
-                          name="add_degree3"
-                          name="add_degree[]"
-                          type="text"
-                          value="3694 Althe"
-                          placeholder="Degree"
-                          class="form-control input-md"
-                          maxlength="10"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_college3"
-                          name="add_college[]"
-                          type="text"
-                          value="2196 Flatley Place"
-                          placeholder="College"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_subjects3"
-                          name="add_subjects[]"
-                          type="text"
-                          value="632 Kendall Streets"
-                          placeholder="Subjects"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_yoj3"
-                          name="add_yoj[]"
-                          type="text"
-                          value="681 M"
-                          placeholder="Year of Joining"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_yog3"
-                          name="add_yog[]"
-                          type="text"
-                          value="1828 "
-                          placeholder="Year of Graduation"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_duration3"
-                          name="add_duration[]"
-                          type="text"
-                          value="2225"
-                          placeholder="Duration"
-                          class="form-control input-md"
-                          maxlength="4"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_perce3"
-                          name="add_perce[]"
-                          type="text"
-                          value="518 L"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_rank3"
-                          name="add_rank[]"
-                          type="text"
-                          value="Illum"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                    </tr>
-
-                    <tr height="60px">
-                      <td class="col-md-2">
-                        <input
-                          name="add_degree4"
-                          name="add_degree[]"
-                          type="text"
-                          value="795 Quinte"
-                          placeholder="Degree"
-                          class="form-control input-md"
-                          maxlength="10"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_college4"
-                          name="add_college[]"
-                          type="text"
-                          value="31726 Rodriguez Prairie"
-                          placeholder="College"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_subjects4"
-                          name="add_subjects[]"
-                          type="text"
-                          value="180 Botsford Road"
-                          placeholder="Subjects"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_yoj4"
-                          name="add_yoj[]"
-                          type="text"
-                          value="375 M"
-                          placeholder="Year of Joining"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_yog4"
-                          name="add_yog[]"
-                          type="text"
-                          value="4494 "
-                          placeholder="Year of Graduation"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_duration4"
-                          name="add_duration[]"
-                          type="text"
-                          value="380"
-                          placeholder="Duration"
-                          class="form-control input-md"
-                          maxlength="4"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_perce4"
-                          name="add_perce[]"
-                          type="text"
-                          value="275 D"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_rank4"
-                          name="add_rank[]"
-                          type="text"
-                          value="Aliqu"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                    </tr>
-
-                    <tr height="60px">
-                      <td class="col-md-2">
-                        <input
-                          name="add_degree5"
-                          name="add_degree[]"
-                          type="text"
-                          value="4492 Leora"
-                          placeholder="Degree"
-                          class="form-control input-md"
-                          maxlength="10"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_college5"
-                          name="add_college[]"
-                          type="text"
-                          value="8327 O'Kon Rest"
-                          placeholder="College"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_subjects5"
-                          name="add_subjects[]"
-                          type="text"
-                          value="939 Carolina Circle"
-                          placeholder="Subjects"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_yoj5"
-                          name="add_yoj[]"
-                          type="text"
-                          value="84804"
-                          placeholder="Year of Joining"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_yog5"
-                          name="add_yog[]"
-                          type="text"
-                          value="978 E"
-                          placeholder="Year of Graduation"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_duration5"
-                          name="add_duration[]"
-                          type="text"
-                          value="9339"
-                          placeholder="Duration"
-                          class="form-control input-md"
-                          maxlength="4"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_perce5"
-                          name="add_perce[]"
-                          type="text"
-                          value="735 L"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_rank5"
-                          name="add_rank[]"
-                          type="text"
-                          value="Cumqu"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                    </tr>
-
-                    <tr height="60px">
-                      <td class="col-md-2">
-                        <input
-                          name="add_degree6"
-                          name="add_degree[]"
-                          type="text"
-                          value="7714 Corwi"
-                          placeholder="Degree"
-                          class="form-control input-md"
-                          maxlength="10"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_college6"
-                          name="add_college[]"
-                          type="text"
-                          value="2136 Klein Groves"
-                          placeholder="College"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_subjects6"
-                          name="add_subjects[]"
-                          type="text"
-                          value="9199 Eula Track"
-                          placeholder="Subjects"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_yoj6"
-                          name="add_yoj[]"
-                          type="text"
-                          value="44955"
-                          placeholder="Year of Joining"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_yog6"
-                          name="add_yog[]"
-                          type="text"
-                          value="18030"
-                          placeholder="Year of Graduation"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_duration6"
-                          name="add_duration[]"
-                          type="text"
-                          value="815"
-                          placeholder="Duration"
-                          class="form-control input-md"
-                          maxlength="4"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_perce6"
-                          name="add_perce[]"
-                          type="text"
-                          value="72170"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_rank6"
-                          name="add_rank[]"
-                          type="text"
-                          value="Autem"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                    </tr>
-
-                    <tr height="60px">
-                      <td class="col-md-2">
-                        <input
-                          name="add_degree7"
-                          name="add_degree[]"
-                          type="text"
-                          value="1925 Borer"
-                          placeholder="Degree"
-                          class="form-control input-md"
-                          maxlength="10"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_college7"
-                          name="add_college[]"
-                          type="text"
-                          value="533 Aglae Trace"
-                          placeholder="College"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_subjects7"
-                          name="add_subjects[]"
-                          type="text"
-                          value="91625 Agnes Common"
-                          placeholder="Subjects"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_yoj7"
-                          name="add_yoj[]"
-                          type="text"
-                          value="437 E"
-                          placeholder="Year of Joining"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_yog7"
-                          name="add_yog[]"
-                          type="text"
-                          value="7834 "
-                          placeholder="Year of Graduation"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_duration7"
-                          name="add_duration[]"
-                          type="text"
-                          value="640"
-                          placeholder="Duration"
-                          class="form-control input-md"
-                          maxlength="4"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_perce7"
-                          name="add_perce[]"
-                          type="text"
-                          value="93366"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_rank7"
-                          name="add_rank[]"
-                          type="text"
-                          value="Recus"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                    </tr>
-
-                    <tr height="60px">
-                      <td class="col-md-2">
-                        <input
-                          name="add_degree8"
-                          name="add_degree[]"
-                          type="text"
-                          value="6529 Stoke"
-                          placeholder="Degree"
-                          class="form-control input-md"
-                          maxlength="10"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_college8"
-                          name="add_college[]"
-                          type="text"
-                          value="54327 Douglas Cliffs"
-                          placeholder="College"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_subjects8"
-                          name="add_subjects[]"
-                          type="text"
-                          value="53866 Hagenes Field"
-                          placeholder="Subjects"
-                          class="form-control input-md"
-                          maxlength="80"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_yoj8"
-                          name="add_yoj[]"
-                          type="text"
-                          value="321 T"
-                          placeholder="Year of Joining"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_yog8"
-                          name="add_yog[]"
-                          type="text"
-                          value="823 F"
-                          placeholder="Year of Graduation"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                      <td class="col-md-2">
-                        <input
-                          name="add_duration8"
-                          name="add_duration[]"
-                          type="text"
-                          value="8049"
-                          placeholder="Duration"
-                          class="form-control input-md"
-                          maxlength="4"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_perce8"
-                          name="add_perce[]"
-                          type="text"
-                          value="71140"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-
-                      <td class="col-md-2">
-                        <input
-                          name="add_rank8"
-                          name="add_rank[]"
-                          type="text"
-                          value="Eaque"
-                          placeholder="Percentage"
-                          class="form-control input-md"
-                          maxlength="5"
-                          required=""
-                        />
-                      </td>
-                    </tr>
+                    
+                    
+                    
+                    
                   </tbody>
                 </table>
               </div>
@@ -1458,7 +730,7 @@
 
           <div class="row mt-3">
             <div class="col-md-12 text-end">
-              <button type="submit" class="btn btn-primary submit" onclick="onSubmit()">
+              <button type="submit" class="btn btn-primary submit" >
                 Save and Next
               </button>
             </div>

@@ -71,7 +71,7 @@ fieldset {
   align-items: center;
 }
 h4 {
-  color: #6739bb;
+  color: hsl(261, 53%, 48%);
   font-size: 18px;
   margin: 10px 0px;
   display: flex;
@@ -754,4 +754,7 @@ body {
 }
 .permanentAddress5 {
   font-size: 15px;
+}
+.pag7_heading {
+  font-size: 1.5rem;
 }
