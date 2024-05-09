@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="wnameth=device-wnameth, initial-scale=1.0" />
+    <title>IIT Patna</title>
+    <!-- Bootstrap CSS (latest version) -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/stylesheets/bootstrap-datepicker.css"
+    />
+    <script type="text/javascript" src="/javascripts/jquery.js"></script>
+    <script type="text/javascript" src="/javascripts/bootstrap.js"></script>
+    <script
+      type="text/javascript"
+      src="/javascripts/bootstrap-datepicker.js"
+    ></script>
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" />
+    <link href="/stylesheets/forms.css" rel="stylesheet" />
+    <title>Faculty Login</title>
+    
+    
+  </head>
+  <body>
+    <!-- <div class="box"> -->
+    <nav class="navbar bg-body-tertiary">
+      <div
+        class="container-fluname d-flex justify-content-center align-items-center"
+      >
+        <span class="navbar-brand mb-4 h1 form-name"
+          >Application for Faculty Position</span
+        >
+      </div>
+    </nav>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 well">
+      <form class="form-horizontal" action="/page8" method="post">
+        <legend>
+          <div class="row">
+            <div class="col-md-8">
+              <h4 class="Welcome">
+                Welcome :
+                <font color="#025198"
+                  ><strong> <%= session.first_name %></strong></font
+                >
+              </h4>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/change_password" class="btn btn-lg btn-info pull-right btn-light">Change Password</a>
+            </div>
+            <div class="col-md-1">
+              <a href="/" class="btn btn-lg btn-success pull-right btn-light"
+                >Logout</a
+              >
+            </div>
+          </div>
+        </legend>
+            <div class="box">
+                
+                <section>
+                    <h4>20. Reprints of 5 Best Research Papers *</h4>
+                    <div class="p8-heading">
+                        Upload 5 Best Research Papers in a single PDF < 6MB
+                        <button
+                            id="add_more_education"
+                            style="
+                                background-color: #5bc0de;
+                                color: white;
+                                font-size: 12px;
+                                font-family: 'Oswald', sans-serif;
+                                border: transparent;
+                                padding: 5px 10px;
+                            "
+                        >
+                            View Uploaded File
+                        </button>
+                    </div>
+                    <div class="panel-body">
+                        <div class="oneInARow">
+                            <div
+                                class="inputBox"
+                                style="justify-content: center"
+                            >
+                                <label for="best_papers" style="color: #008000"
+                                    >Upload best 5 Papers</label
+                                >
+                                <input
+                                    type="file"
+                                    id="thesis_title"
+                                    name="research_papers"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <br />
+                <h4>
+                    21. Check List of the documents attached with the online
+                    application *
+                </h4>
+                <section>
+                    <legend>
+                        Check List of the documents attached with the online
+                        application (Documents should be uploaded in PDF format
+                        only):
+                        <br />
+                        <h5
+                            style="
+                                margin: 0px;
+                                color: red;
+                                font-weight: lighter;
+                            "
+                        >
+                            Uploaded PDF files will not be displayed as part of
+                            the printed form.
+                        </h5>
+                    </legend>
+                    <div class="panel-body filesGrid">
+                        <div class="grid-span-2">
+                            <div class="p8-b1">
+                                <div class="p8-heading">
+                                    PHD Certificate
+                                    <button
+                                        id="add_more_education"
+                                        style="
+                                            background-color: #5bc0de;
+                                            color: white;
+                                            font-size: 12px;
+                                            font-family: 'Oswald', sans-serif;
+                                            border: transparent;
+                                            padding: 5px 10px;
+                                        "
+                                    >
+                                        View Uploaded File
+                                    </button>
+                                </div>
+                                <div class="inputBorder">
+                                    <label
+                                        for="phd_certificates"
+                                        style="color: #008000; font-size: 14px"
+                                        >Upload PHD Certificates</label
+                                    >
+                                    <br />
+                                    <input
+                                        type="file"
+                                        id="thesis_title"
+                                        name="phd_certificate"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-span-2">
+                            <div class="p8-b1">
+                                <div class="p8-heading">
+                                    PG Documents
+
+                                    <button
+                                        id="add_more_education"
+                                        style="
+                                            background-color: #5bc0de;
+                                            color: white;
+                                            font-size: 12px;
+                                            font-family: 'Oswald', sans-serif;
+                                            border: transparent;
+                                            padding: 5px 10px;
+                                        "
+                                    >
+                                        View Uploaded File
+                                    </button>
+                                </div>
+                                <div class="inputBorder">
+                                    <label
+                                        for="phd_certificates"
+                                        style="color: #008000; font-size: 14px"
+                                        >Update All semester /year-Marksheets
+                                        and degree certificates</label
+                                    >
+                                    <br />
+                                    <input
+                                        type="file"
+                                        id="thesis_title"
+                                        name="pg_marksheet"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-span-2">
+                            <div class="p8-b1">
+                                <div class="p8-heading">
+                                    UG Documents
+                                    <button
+                                        id="add_more_education"
+                                        style="
+                                            background-color: #5bc0de;
+                                            color: white;
+                                            font-size: 12px;
+                                            font-family: 'Oswald', sans-serif;
+                                            border: transparent;
+                                            padding: 5px 10px;
+                                        "
+                                    >
+                                        View Uploaded File
+                                    </button>
+                                </div>
+                                <div class="inputBorder">
+                                    <label
+                                        for="phd_certificates"
+                                        style="color: #008000; font-size: 14px"
+                                        >Update All semester /year-Marksheets
+                                        and degree certificate</label
+                                    >
+                                    <br />
+                                    <input
+                                        type="file"
+                                        id="thesis_title"
+                                        name="ug_marksheet"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-span-2">
+                            <div class="p8-b1">
+                                <div class="p8-heading">
+                                    12th /HSC /Diploma Documents
+
+                                    <button
+                                        id="add_more_education"
+                                        style="
+                                            background-color: #5bc0de;
+                                            color: white;
+                                            font-size: 12px;
+                                            font-family: 'Oswald', sans-serif;
+                                            border: transparent;
+                                            padding: 5px 10px;
+                                        "
+                                    >
+                                        View Uploaded File
+                                    </button>
+                                </div>
+                                <div class="inputBorder">
+                                    <label
+                                        for="phd_certificates"
+                                        style="color: #008000; font-size: 14px"
+                                        >Update 12th /HSC /Diploma /Marksheet(s)
+                                        and passing certificate</label
+                                    >
+                                    <br />
+                                    <input
+                                        type="file"
+                                        id="thesis_title"
+                                        name="diploma_12th_marksheet"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-span-2">
+                            <div class="p8-b1">
+                                <div class="p8-heading">
+                                    10th /SSC Documents
+                                    <button
+                                        id="add_more_education"
+                                        style="
+                                            background-color: #5bc0de;
+                                            color: white;
+                                            font-size: 12px;
+                                            font-family: 'Oswald', sans-serif;
+                                            border: transparent;
+                                            padding: 5px 10px;
+                                        "
+                                    >
+                                        View Uploaded File
+                                    </button>
+                                </div>
+                                <div class="inputBorder">
+                                    <label
+                                        for="phd_certificates"
+                                        style="color: #008000; font-size: 14px"
+                                        >Update 12th /HSC /Diploma /Marksheet(s)
+                                        and passing certificate</label
+                                    >
+                                    <br />
+                                    <input
+                                        type="file"
+                                        id="thesis_title"
+                                        name="diploma_10th_marksheet"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-span-2">
+                            <div class="p8-b1">
+                                <div class="p8-heading">
+                                    Pay Slip
+                                    <button
+                                        id="add_more_education"
+                                        style="
+                                            background-color: #5bc0de;
+                                            color: white;
+                                            font-size: 12px;
+                                            font-family: 'Oswald', sans-serif;
+                                            border: transparent;
+                                            padding: 5px 10px;
+                                        "
+                                    >
+                                        View Uploaded File
+                                    </button>
+                                </div>
+                                <div class="inputBorder">
+                                    <label
+                                        for="phd_certificates"
+                                        style="color: #008000; font-size: 14px"
+                                        >Update Pay Slip</label
+                                    >
+                                    <br />
+                                    <input
+                                        type="file"
+                                        id="thesis_title"
+                                        name="pay_slip"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-span-3">
+                            <div class="p8-b1">
+                                <div class="p8-heading">
+                                    NOC or Undertaking
+                                    <button
+                                        id="add_more_education"
+                                        style="
+                                            background-color: #5bc0de;
+                                            color: white;
+                                            font-size: 12px;
+                                            font-family: 'Oswald', sans-serif;
+                                            border: transparent;
+                                            padding: 5px 10px;
+                                        "
+                                    >
+                                        View Uploaded File
+                                    </button>
+                                </div>
+                                <div class="inputBorder">
+                                    <label
+                                        for="phd_certificates"
+                                        style="color: #008000; font-size: 14px"
+                                        >Undertaking-in case, NOC is not
+                                        available at the time of application but
+                                        will be provided at the time of
+                                        interview</label
+                                    >
+                                    <br />
+                                    <input
+                                        type="file"
+                                        id="thesis_title"
+                                        name="NOC"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-span-3">
+                            <div class="p8-b1">
+                                <div class="p8-heading">
+                                    Post phd Experience Certificate /All
+                                    Experience Certificates / Last Pay slip
+
+                                    <button
+                                        id="add_more_education"
+                                        style="
+                                            background-color: #5bc0de;
+                                            color: white;
+                                            font-size: 12px;
+                                            font-family: 'Oswald', sans-serif;
+                                            border: transparent;
+                                            padding: 5px 10px;
+                                        "
+                                    >
+                                        View Uploaded File
+                                    </button>
+                                </div>
+                                <div class="inputBorder">
+                                    <label
+                                        for="phd_certificates"
+                                        style="color: #008000; font-size: 14px"
+                                        >Update Certificate</label
+                                    >
+                                    <br />
+                                    <input
+                                        type="file"
+                                        id="thesis_title"
+                                        name="post_phd_experience"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid-span-6">
+                            <div class="p8-b1">
+                                <div class="p8-heading">
+                                    Upload any other relevant document in a
+                                    single PDF (For example award certificate,
+                                    experience certificate etc. If there are
+                                    multiple documents, combine all the
+                                    documents in a single PDF) &lt;1MB.
+                                    <button
+                                        id="add_more_education"
+                                        style="
+                                            background-color: #5bc0de;
+                                            color: white;
+                                            font-size: 12px;
+                                            font-family: 'Oswald', sans-serif;
+                                            border: transparent;
+                                            padding: 5px 10px;
+                                        "
+                                    >
+                                        View Uploaded File
+                                    </button>
+                                </div>
+                                <div class="inputBorder">
+                                    <label
+                                        for="phd_certificates"
+                                        style="color: #ff0000; font-size: 14px"
+                                        >Update any other document</label
+                                    >
+                                    <br />
+                                    <input
+                                        type="file"
+                                        id="thesis_title"
+                                        name="relavent_document"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="p8-b2">
+                            <div class="p8-heading">
+                                Upload your Signature in JPG only
+                            </div>
+                            <div class="inputBorder">
+                                <img id="preview" src="" alt="Signature Preview" height="100" width="200" style="border: 1px solid grey;" />
+                                <br />
+                                <input
+                                    type="file"
+                                    id="signature"
+                                    name="signature"
+                                    onchange="previewSignature(event)"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <br />
+                <section>
+                    <legend>Fill the Details</legend>
+                    <div class="panel-body">
+                        <table class="dataTable">
+                            <thead>
+                                <tr class="heading">
+                                    <th class="p8-t1-c1">Name</th>
+                                    <th class="p8-t1-c2">Position</th>
+                                    <th class="p8-t1-c3">
+                                        Association with Referee
+                                    </th>
+                                    <th class="p8-t1-c4">
+                                        Institution/Organization
+                                    </th>
+                                    <th class="p8-t1-c5">E-mail</th>
+                                    <th class="p8-t1-c6">Contact No.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p8-t1-c1">
+                                        <input type="text" name="name_1" />
+                                    </td>
+                                    <td class="p8-t1-c2">
+                                        <input type="text" name="position_1" />
+                                    </td>
+                                    <td class="p8-t1-c3">
+                                        <select
+                                            name="association_referee"
+                                            class="selection"
+                                        >
+                                            <option value="select">
+                                                Select
+                                            </option>
+                                            <option value="thesis_supervisor">
+                                                Thesis Supervisor
+                                            </option>
+                                            <option value="postdoc_supervisor">
+                                                Postdoc Supervisor
+                                            </option>
+                                            <option
+                                                value="research_collaborator"
+                                            >
+                                                Research Collaborator
+                                            </option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </td>
+                                    <td class="p8-t1-c4">
+                                        <input
+                                            type="text"
+                                            name="referees"
+                                        />
+                                    </td>
+                                    <td class="p8-t1-c5">
+                                        <input type="email" name="referees" />
+                                    </td>
+                                    <td class="p8-t1-c6">
+                                        <input type="tel" name="referees" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p8-t1-c1">
+                                        <input type="text" name="referees" />
+                                    </td>
+                                    <td class="p8-t1-c2">
+                                        <input type="text" name="referees" />
+                                    </td>
+                                    <td class="p8-t1-c3">
+                                        <select
+                                            name="association_referee"
+                                            class="selection"
+                                        >
+                                            <option value="select">
+                                                Select
+                                            </option>
+                                            <option value="thesis_supervisor">
+                                                Thesis Supervisor
+                                            </option>
+                                            <option value="postdoc_supervisor">
+                                                Postdoc Supervisor
+                                            </option>
+                                            <option
+                                                value="research_collaborator"
+                                            >
+                                                Research Collaborator
+                                            </option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </td>
+                                    <td class="p8-t1-c4">
+                                        <input
+                                            type="text"
+                                            name="referees"
+                                        />
+                                    </td>
+                                    <td class="p8-t1-c5">
+                                        <input type="email" name="referees" />
+                                    </td>
+                                    <td class="p8-t1-c6">
+                                        <input type="tel" name="referees" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p8-t1-c1">
+                                        <input type="text" name="referees" />
+                                    </td>
+                                    <td class="p8-t1-c2">
+                                        <input type="text" name="referees" />
+                                    </td>
+                                    <td class="p8-t1-c3">
+                                        <select
+                                            name="association_referee"
+                                            class="selection"
+                                        >
+                                            <option value="select">
+                                                Select
+                                            </option>
+                                            <option value="thesis_supervisor">
+                                                Thesis Supervisor
+                                            </option>
+                                            <option value="postdoc_supervisor">
+                                                Postdoc Supervisor
+                                            </option>
+                                            <option
+                                                value="research_collaborator"
+                                            >
+                                                Research Collaborator
+                                            </option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </td>
+                                    <td class="p8-t1-c4">
+                                        <input
+                                            type="text"
+                                            name="referees"
+                                        />
+                                    </td>
+                                    <td class="p8-t1-c5">
+                                        <input type="email" name="referees" />
+                                    </td>
+                                    <td class="p8-t1-c6">
+                                        <input type="tel" name="referees" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <div class="form-group">
+                    <div class="col-md-1">
+                      <a
+                        href="/form"
+                        class="btn btn-primary pull-left"
+                        previewlistener="true"
+                        ><i class="glyphicon glyphicon-fast-backward"></i
+                      ></a>
+                    </div>
+          
+                    <div class="row mt-3">
+                      <div class="col-md-12 text-end">
+                        <button type="submit" class="btn btn-primary submit" >
+                          Save and Next
+                        </button>
+                      </div>
+                    </div>
+                  </div>  
+                </form>
+              </div>
+              <!-- </div> -->
+              <!-- Bootstrap Scripts (latest version) -->
+              <script>
+                function previewSignature(event) {
+                    var reader = new FileReader();
+                    reader.onload = function() {
+                        var output = document.getElementById('preview');
+                        output.src = reader.result;
+                    }
+                    reader.readAsDataURL(event.target.files[0]);
+                }
+            </script>
+            
+              <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+            </body>
+          </html>

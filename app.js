@@ -151,6 +151,10 @@ app.get("/signup", function (req, res) {
   res.render("signup", { title: "Express", session: req.session }); // Renders the form.ejs view
 });
 
+app.get("/change_password", function (req, res) {
+  res.render("change_password", { title: "Express", session: req.session }); // Renders the form.ejs view
+});
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

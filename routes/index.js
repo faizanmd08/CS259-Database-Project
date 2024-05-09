@@ -40,6 +40,45 @@ router.post("/login", function (request, response, next) {
   }
 });
 
+router.post("/change_password", function (request, response, next) {
+  //console.log(request.body);
+  var user_email_address = request.body.user_email_address;
+  var old_password = request.body.old_password;
+  var new_password = request.body.new_password;
+  if (user_email_address && old_password && new_password) {
+    query = `select * from user_login_info where email = "${user_email_address}"`;
+    database.query(query, function (error, data) {
+      if (data.length > 0) {
+        console.log(data);
+        for (var count = 0; count < data.length; count++) {
+          if (data[count].password === old_password) {
+            const q = `UPDATE user_login_info SET password = ${new_password} WHERE email = ${user_email_address}`;
+
+            database.query(q, function (error, data) {
+              if (error) {
+                request.session.error = "SOmething went wrong";
+                response.redirect("/change_password");
+              } else {
+                request.session.error = "Password changed successfully";
+                response.redirect("/change_password");
+              }
+            });
+          } else {
+            request.session.error = "Incorrect Old Password";
+            response.redirect("/change_password");
+          }
+        }
+      } else {
+        request.session.error = "Incorrect Email";
+        response.redirect("/change_password");
+      }
+    });
+  } else {
+    response.send("Enter Details");
+    response.end();
+  }
+});
+
 router.post("/signup", function (request, response, next) {
   var fname = request.body.fname;
   var lname = request.body.lname;
