@@ -41,36 +41,54 @@ router.post("/login", function (request, response, next) {
 });
 
 router.post("/change_password", function (request, response, next) {
-  //console.log(request.body);
-  var user_email_address = request.body.user_email_address;
-  var old_password = request.body.old_password;
-  var new_password = request.body.new_password;
+  console.log(request.body);
+
+  const user_email_address = request.body.email;
+  const old_password = request.body.old_password;
+  const new_password = request.body.new_password;
+
+  console.log(user_email_address, old_password, new_password);
+
   if (user_email_address && old_password && new_password) {
-    query = `select * from user_login_info where email = "${user_email_address}"`;
-    database.query(query, function (error, data) {
+    const query = `SELECT * FROM user_login_info WHERE email = ?`;
+
+    // Use parameterized queries to prevent SQL injection
+    database.query(query, [user_email_address], function (error, data) {
+      if (error) {
+        console.error("Database query error:", error);
+        request.session.error = "Database query failed";
+        return response.redirect("/change_password");
+      }
+
       if (data.length > 0) {
         console.log(data);
-        for (var count = 0; count < data.length; count++) {
-          if (data[count].password === old_password) {
-            const q = `UPDATE user_login_info SET password = ${new_password} WHERE email = ${user_email_address}`;
 
-            database.query(q, function (error, data) {
+        // Assuming passwords are stored as plain text (not recommended)
+        if (data[0].password === old_password) {
+          const updateQuery = `UPDATE user_login_info SET password = ? WHERE email = ?`;
+
+          database.query(
+            updateQuery,
+            [new_password, user_email_address],
+            function (error, result) {
               if (error) {
-                request.session.error = "SOmething went wrong";
-                response.redirect("/change_password");
+                console.error("Password update error:", error);
+                request.session.error = "Something went wrong";
+                return response.redirect("/change_password");
               } else {
+                console.log("Password updated successfully:", result);
                 request.session.error = "Password changed successfully";
-                response.redirect("/change_password");
+                return response.redirect("/change_password");
               }
-            });
-          } else {
-            request.session.error = "Incorrect Old Password";
-            response.redirect("/change_password");
-          }
+            }
+          );
+        } else {
+          request.session.error = "Incorrect Old Password";
+          return response.redirect("/change_password");
         }
       } else {
         request.session.error = "Incorrect Email";
-        response.redirect("/change_password");
+        return response.redirect("/change_password");
       }
     });
   } else {
